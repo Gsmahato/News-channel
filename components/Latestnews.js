@@ -10,7 +10,7 @@ const Latestnews = () => {
   return (
     <>
       <section className={styles.latest}>
-        <div className={styles.news_container}>
+        <div className={styles.latest_container}>
           <h2>
             <Link href="/">
               भारतसँग पराजित भएसँगै नेपाल साफ च्याम्पियनसिपबाट बाहिरियो
@@ -50,7 +50,7 @@ const Latestnews = () => {
         </div>
       </section>
       <section className={styles.latest}>
-        <div className={styles.news_container}>
+        <div className={styles.latest_container}>
           <h2>
             <Link href="/">
               भारतसँग पराजित भएसँगै नेपाल साफ च्याम्पियनसिपबाट बाहिरियो
