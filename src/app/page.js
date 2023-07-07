@@ -2,25 +2,21 @@ import Adbanner from '../../components/Adbanner'
 import Bijnesh from '../../components/Bijnesh'
 import Entertainment from '../../components/Entertainment'
 import Feature from '../../components/Feature'
+import Footer from '../../components/Footer'
 import Hottopic from '../../components/Hottopic'
 import Latestnews from '../../components/Latestnews'
 import Mukhya from '../../components/Mukhya'
-import Navbar from '../../components/Navbar'
 import PradeshSamachar from '../../components/PradeshSamachar'
 import Samachar from '../../components/Samachar'
-import Topheader from '../../components/Topheader'
 import './globals.css'
-
 export default function Home() {
   return (
     <>
-    <Topheader/>
-    <Navbar/>
     <Hottopic/>
     <Adbanner/>
     <Latestnews/>
     <Adbanner/>
-    {/* <Mukhya/> */}
+    <Mukhya/>
     <Samachar/>
     <Adbanner/>
     <Bijnesh/>
@@ -29,6 +25,7 @@ export default function Home() {
     <Adbanner/>
     <Feature/>
     <Entertainment/>
+    <Footer/>
     </>
   )
 }

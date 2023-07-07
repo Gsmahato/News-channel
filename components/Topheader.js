@@ -11,7 +11,9 @@ const Topheader = () => {
         <div className={styles.topheader}>
             <div className={styles.container}>
                 <div className={styles.logo}>
+                    <Link href="/">
                     <Image src={logo} width={268} height={31} alt=''/>
+                    </Link>
                     <div className={styles.currenttime}>6/24/2023</div>
                 </div>
                 <div className={styles.head_adv}>

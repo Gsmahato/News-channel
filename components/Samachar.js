@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ANSU from "../public/ANSU.jpg";
 import prachar from "../public/prachar.gif";
+import rightbanner1 from "../public/rightbanner1.gif";
 import { MdArrowForwardIos } from "react-icons/md";
 
 const Samachar = () => {
@@ -267,7 +268,31 @@ const Samachar = () => {
             </div>
           </div>
         </div>
-        <div className={styles.col_right}></div>
+        <div className={styles.col_right}>
+            <div className={styles.side_ad}>
+              <div
+                className={styles.desktop_mukhya_ad}
+                data-alias="home-mukhya-right"
+                data-device-type="desktop"
+              >
+                <div className={styles.each_ad}>
+                  <Link href="/">
+                    <Image src={rightbanner1} width={300} height={150} alt=""/>
+                  </Link>
+                </div>
+                <div className={styles.each_ad}>
+                  <Link href="/">
+                    <Image src={rightbanner1} width={300} height={150} alt=""/>
+                  </Link>
+                </div>
+                <div className={styles.each_ad}>
+                  <Link href="/">
+                    <Image src={rightbanner1} width={300} height={150} alt=""/>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </section>
   );
