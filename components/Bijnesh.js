@@ -42,7 +42,7 @@ const Bijnesh = () => {
           <div className={styles.grid_12}>
             <div className={styles.span_12}>
               <div className={styles.samachar_spot_news}>
-                <div className={styles.post_img}>
+                <div className={styles.post_img_2}>
                   <Link href="/">
                     <Image src={ANSU} alt="" width={580} height={508} />
                   </Link>
