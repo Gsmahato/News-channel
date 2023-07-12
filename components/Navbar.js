@@ -1,17 +1,30 @@
-import React from "react";
+"use client"
+import React, { useState } from 'react';
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
+import SideMenu from "./SideMenu";
 import { PiClockClockwiseFill, PiTrendUp, PiUserCircle } from "react-icons/pi";
 import { RiMenuLine, RiMenu2Line } from "react-icons/ri";
 
 const Navbar = () => {
+  const [showSideMenu, setShowSideMenu] = useState(false);
+
+  const handleMenuClick = () => {
+    setShowSideMenu(!showSideMenu);
+  };
+
+  const handleCloseMenu = () => {
+    setShowSideMenu(false);
+  };
   return (
     <>
       <div className={styles.navbar}>
         <div className={styles.container}>
           <div className={styles.menu_container}>
             <ul className={styles.primary_menu}>
-              <li className={styles.menu_item}>होमपेज</li>
+              <li className={styles.menu_item}>
+                <Link href="/">होमपेज</Link>
+              </li>
               <li className={styles.menu_item}>विजनेस</li>
               <li className={styles.menu_item}>जीवनशैली</li>
               <li className={styles.menu_item}>विजनेस</li>
@@ -46,11 +59,12 @@ const Navbar = () => {
                   <PiUserCircle />
                 </i>
               </div>
-              <div className={styles.nav_menu}>
+              <div className={styles.nav_menu} onClick={handleMenuClick}>
                 <i className={styles.activity_icon}>
                   <RiMenuLine />
                 </i>
               </div>
+              {showSideMenu && <SideMenu onClose={handleCloseMenu} />}
             </div>
           </div>
         </div>

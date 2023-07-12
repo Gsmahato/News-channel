@@ -5,16 +5,36 @@ import Authoricon from "../public/Gorkha.jpg";
 import digital from "../public/digital.jpg";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
-const Latestnews = ({ news }) => {
-  console.log(news);
+async function getNews() {
+  const response = await fetch("https://www.bimaabazar.com/newsportal/news/");
+  const data = await response.json();
+  return data;
+}
+export default async function Latestnews() {
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get(
+          "https://www.bimaabazar.com/newsportal/news/"
+        );
+        setNewsList(response.data);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
+  const news = await getNews();
   return (
     <>
       <section className={styles.latest}>
-        {/* {news.map((late) => ( */}
-          <div className={styles.latest_container}>
-            <h2>
-              <Link href="/latest">मनसुनी रेखा नेपालतर्फ सर्दै, भोलिदेखि धेरै स्थानमा पानी पर्ने </Link>
-            </h2>
+        {news.map((latest) => (
+          <div className={styles.latest_container} key={latest.id}>
+            <Link href={`/News/${latest.id}`}>
+              <h2>{latest.title}</h2>
+            </Link>
+
             <div className={styles.title_info}>
               <div className={styles.news_author}>
                 <span className={styles.author_icon}>
@@ -36,10 +56,9 @@ const Latestnews = ({ news }) => {
               </div>
             </div>
             <div className={styles.latest_news_image}>
-              <Link href="/">
+              <Link href={`/News/${latest.id}`}>
                 <Image
-                  // src={`https://www.bimaabazar.com/${latest.image}`}
-                  src={digital}
+                  src={`https://www.bimaabazar.com/${latest.image}`}
                   alt=""
                   width={1248}
                   height={700}
@@ -47,16 +66,11 @@ const Latestnews = ({ news }) => {
               </Link>
             </div>
             <p className={styles.latest_news_image_description}>
-              &apos;डिजिटल जादुगर&apos; हरू जन्मिने नै भए। तर, उनीहरूले
-              लोकतन्त्रलाई बलियो बनाउँदैछन् कि कमजोर?&apos;डिजिटल जादुगर&apos;
-              हरूले कता लैजाँदैछन् वा लैजान सक्छन् देशलाई?प्रियता र अवसरवाद या
-              हाइपोक्रेसीतिर कि एक गम्भीर र संवेदनशील समाधानतिर?
+              {latest.category.description}
             </p>
           </div>
-        {/* ))} */}
+        ))}
       </section>
     </>
   );
-};
-
-export default Latestnews;
+}

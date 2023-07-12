@@ -1,13 +1,25 @@
+"use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react';
 import styles from '../src/app/page.module.css'
 import Image from 'next/image'
 import logo from '../public/logonews.png'
 import banner from '../public/banner.gif'
 import {PiUserCircle } from "react-icons/pi";
 import { RiMenuLine} from "react-icons/ri";
+import SideMenu from "./SideMenu";
+
 
 const Topheader = () => {
+  const [showSideMenu, setShowSideMenu] = useState(false);
+
+  const handleMenuClick = () => {
+    setShowSideMenu(!showSideMenu);
+  };
+
+  const handleCloseMenu = () => {
+    setShowSideMenu(false);
+  };
   return (
     <>
         <div className={styles.topheader}>
@@ -28,11 +40,12 @@ const Topheader = () => {
                         <Image src={banner} width={700} height={70} alt=''/>
                     </div>
                 </div>
-              <div className={styles.nav_menu}>
-                <i className={styles.activity_icon}>
+              <div className={styles.nav_menu} onClick={handleMenuClick}>
+                <i className={styles.activity_icon} >
                   <RiMenuLine />
                 </i>
               </div>
+              {showSideMenu && <SideMenu onClose={handleCloseMenu} />}
             </div>
         </div>
 

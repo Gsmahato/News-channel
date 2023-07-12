@@ -13,30 +13,18 @@ export default function Home({ news }) {
   return (
     <>
       <Hottopic />
-      {/* <Adbanner /> */}
+      <Adbanner />
       <Latestnews news={news} />
-      {/* <Adbanner /> */}
+      <Adbanner />
       <Mukhya />
       <Samachar />
-      {/* <Adbanner /> */}
-      {/* <Bijnesh /> */}
-     {/* <Adbanner /> */}
-       {/* <PradeshSamachar /> */}
-      {/* <Adbanner /> */}
+      <Adbanner />
+      <Bijnesh />
+     <Adbanner />
+       <PradeshSamachar />
+      <Adbanner />
       {/* <Feature /> */}
-      {/* <Entertainment /> */}
-      {/* <Footer /> */}
+      <Entertainment />
     </>
   );
-}
-export async function getServerSideProps() {
-  const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
-
-  const news = await res.json();
-
-  return {
-    props: {
-      news,
-    },
-  };
 }

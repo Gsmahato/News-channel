@@ -1,36 +1,13 @@
-import React from "react";
+import { getNews } from '@/app/utils/getNews'
 
-const Page = ({ news }) => {
-     return (
-    <div>
-      {news.map((m) => (
-        <div key={m.id}>
-          <h2>{m.title}</h2>
-          <p>{m.content}</p>
-          <img src={m.image} alt="Article Image" />
-        </div>
-      ))}
-    </div>
-  );
-};
+export default async function Latestpage (id){
+    const newsdata = await getNews(id)
+  return (
+    <>
+    {newsdata.map((latest)=>(
+      <div key={latest.id}>{latest.content}</div>
+    ))}
+    </>
+  )
+}
 
-export async function getServerSideProps() {
-    try {
-      const res = await fetch('https://www.getfromnepal.com/productapi/');
-      const news = await res.json();
-  
-      return {
-        props: {
-          news,
-        },
-      };
-    } catch (error) {
-      console.error('Error fetching news:', error);
-      return {
-        props: {
-          news: [],
-        },
-      };
-    }
-  }
-export default Page;
