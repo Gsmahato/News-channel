@@ -11,20 +11,6 @@ async function getNews() {
   return data;
 }
 export default async function Latestnews() {
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await axios.get(
-          "https://www.bimaabazar.com/newsportal/news/"
-        );
-        setNewsList(response.data);
-      } catch (error) {
-        console.error("Error fetching news:", error);
-      }
-    };
-
-    fetchNews();
-  }, []);
   const news = await getNews();
   return (
     <>
