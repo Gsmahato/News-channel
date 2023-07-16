@@ -39,6 +39,23 @@ const Bijnesh = () => {
               </Link>
             </h2>
           </div>
+          <ul className={styles.title_cat_menu_mob}>
+                <Link href="/">
+                  <li>अर्थनीति</li>
+                </Link>
+                <Link href="/">
+                  <li>अर्थनीति</li>
+                </Link>
+                <Link href="/">
+                  <li>अर्थनीति</li>
+                </Link>
+                <Link href="/">
+                  <li>अर्थनीति</li>
+                </Link>
+                <Link href="/">
+                  <li>अर्थनीति</li>
+                </Link>
+              </ul>
           <div className={styles.grid_12}>
             <div className={styles.span_12}>
               <div className={styles.samachar_spot_news}>
@@ -291,63 +308,90 @@ const Bijnesh = () => {
               <div className={styles.bijnesh_post_1tr}>
                 <Link href="/">
                   <div className={styles.bijnesh_content_wrap}>
-                    <h2 className={styles.title_txt}>एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म छुट</h2>
+                    <h2 className={styles.title_txt}>
+                      एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म
+                      छुट
+                    </h2>
                   </div>
                 </Link>
               </div>
               <div className={styles.bijnesh_post_1tr}>
                 <Link href="/">
                   <div className={styles.bijnesh_content_wrap}>
-                    <h2 className={styles.title_txt}>एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म छुट</h2>
+                    <h2 className={styles.title_txt}>
+                      एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म
+                      छुट
+                    </h2>
                   </div>
                 </Link>
               </div>
               <div className={styles.bijnesh_post_1tr}>
                 <Link href="/">
                   <div className={styles.bijnesh_content_wrap}>
-                    <h2 className={styles.title_txt}>एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म छुट</h2>
+                    <h2 className={styles.title_txt}>
+                      एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म
+                      छुट
+                    </h2>
                   </div>
                 </Link>
               </div>
               <div className={styles.bijnesh_post_1tr}>
                 <Link href="/">
                   <div className={styles.bijnesh_content_wrap}>
-                    <h2 className={styles.title_txt}>एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म छुट</h2>
+                    <h2 className={styles.title_txt}>
+                      एनआईसी एशिया बैंकका ग्राहकलाई ‘लेट मि इन’मा १० प्रतिशतसम्म
+                      छुट
+                    </h2>
                   </div>
                 </Link>
               </div>
-              <Link  href="/" className={styles.all_btn}>
-              <span >सबै</span>
-              <i className={styles.all_arrow}>
+              <Link href="/" className={styles.all_btn}>
+                <span>सबै</span>
+                <i className={styles.all_arrow}>
                   <MdArrowForwardIos />
                 </i>
               </Link>
             </div>
             <div className={styles.bijnesh_right_2}>
-            <div className={styles.side_ad}>
-              <div
-                className={styles.desktop_mukhya_ad}
-                data-alias="home-mukhya-right"
-                data-device-type="desktop"
-              >
-                <div className={styles.each_ad}>
-                  <Link href="/">
-                    <Image src={rightbanner1} width={300} height={150} alt=""/>
-                  </Link>
-                </div>
-                <div className={styles.each_ad}>
-                  <Link href="/">
-                    <Image src={rightbanner1} width={300} height={150} alt=""/>
-                  </Link>
-                </div>
-                <div className={styles.each_ad}>
-                  <Link href="/">
-                    <Image src={rightbanner1} width={300} height={150} alt=""/>
-                  </Link>
+              <div className={styles.side_ad}>
+                <div
+                  className={styles.desktop_mukhya_ad}
+                  data-alias="home-mukhya-right"
+                  data-device-type="desktop"
+                >
+                  <div className={styles.each_ad}>
+                    <Link href="/">
+                      <Image
+                        src={rightbanner1}
+                        width={300}
+                        height={150}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className={styles.each_ad}>
+                    <Link href="/">
+                      <Image
+                        src={rightbanner1}
+                        width={300}
+                        height={150}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
+                  <div className={styles.each_ad}>
+                    <Link href="/">
+                      <Image
+                        src={rightbanner1}
+                        width={300}
+                        height={150}
+                        alt=""
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>

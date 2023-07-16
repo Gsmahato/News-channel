@@ -1,3 +1,4 @@
+"use client"
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,20 +6,34 @@ import Authoricon from "../public/Gorkha.jpg";
 import digital from "../public/digital.jpg";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
-async function getNews() {
-  const response = await fetch("https://www.bimaabazar.com/newsportal/news/");
-  const data = await response.json();
-  return data;
-}
+// async function getAllNews() {
+//   const response = await fetch("https://www.bimaabazar.com/newsportal/news/");
+//   const data = await response.json();
+//   return data;
+// }
+import { useState,useEffect } from "react";
 export default async function Latestnews() {
-  const news = await getNews();
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
+      const data = await res.json();
+      setNews(data);
+    }
+    fetchData();
+  }, []);
+
+
+  // const news = await getAllNews();
+
   return (
     <>
       <section className={styles.latest}>
-        {news.map((latest) => (
-          <div className={styles.latest_container} key={latest.id}>
-            <Link href={`/News/${latest.id}`}>
-              <h2>{latest.title}</h2>
+        {news.map((late) => (
+          <div className={styles.latest_container} key={late.slug}>
+            <Link href={`/News/${late.slug}`}>
+              <h2>{late.title}</h2>
             </Link>
 
             <div className={styles.title_info}>
@@ -42,9 +57,9 @@ export default async function Latestnews() {
               </div>
             </div>
             <div className={styles.latest_news_image}>
-              <Link href={`/News/${latest.id}`}>
+              <Link href={`/News/${late.id}`}>
                 <Image
-                  src={`https://www.bimaabazar.com/${latest.image}`}
+                  src={`https://www.bimaabazar.com/${late.image}`}
                   alt=""
                   width={1248}
                   height={700}
@@ -52,7 +67,7 @@ export default async function Latestnews() {
               </Link>
             </div>
             <p className={styles.latest_news_image_description}>
-              {latest.category.description}
+              {late.content}
             </p>
           </div>
         ))}

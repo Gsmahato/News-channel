@@ -13,16 +13,16 @@ export default function Home({ news }) {
   return (
     <>
       <Hottopic />
-      <Adbanner />
-      <Latestnews news={news} />
-      <Adbanner />
+      {/* <Adbanner /> */}
+      <Latestnews/>
+      {/* <Adbanner /> */}
       <Mukhya />
       <Samachar />
-      <Adbanner />
+      {/* <Adbanner /> */}
       <Bijnesh />
-     <Adbanner />
+     {/* <Adbanner /> */}
        <PradeshSamachar />
-      <Adbanner />
+      {/* <Adbanner /> */}
       {/* <Feature /> */}
       <Entertainment />
     </>

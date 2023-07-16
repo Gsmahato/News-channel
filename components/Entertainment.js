@@ -29,6 +29,13 @@ const Entertainment = () => {
             </Link>
           </h2>
         </div>
+        <ul className={styles.E_title_cat_menu_3}>
+              <Link href="/">गशिप</Link>
+              <Link href="/">फिचर</Link>
+              <Link href="/">बलिउड / हलिउड</Link>
+              <Link href="/">मनोरञ्जन भिडियो</Link>
+              <Link href="/">ब्लोअप</Link>
+            </ul>
         <div className={styles.Enter_grid_12}>
           <div className={styles.merge_2}>
             <div className={styles.Enter_spot_news}>

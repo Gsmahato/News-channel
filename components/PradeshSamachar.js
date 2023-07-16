@@ -32,6 +32,15 @@ const PradeshSamachar = () => {
               </Link>
             </h2>
           </div>
+          <ul className={styles.title_pradesh_num_2}>
+                <Link href="/">१</Link>
+                <Link href="/">२</Link>
+                <Link href="/">३</Link>
+                <Link href="/">४</Link>
+                <Link href="/">५</Link>
+                <Link href="/">६</Link>
+                <Link href="/">७</Link>
+              </ul>
           <div className={styles.grid_12}>
             <div className={styles.span_12}>
               <div className={styles.samachar_spot_news}>

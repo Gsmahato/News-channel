@@ -182,11 +182,11 @@ const Samachar = () => {
               </div>
             </div>
           </div>
-          <div className={styles.prachar}>
+          {/* <div className={styles.prachar}>
             <div className={styles.each_ad}>
               <Image src={prachar} alt="" width={888} height={89} />
             </div>
-          </div>
+          </div> */}
           <div className={styles.grid_12}>
             <div className={styles.span_6}>
               <div className={styles.post_1tr}>
