@@ -42,12 +42,8 @@ export default async function Latestnews() {
                 <span>0</span>
               </div>
             </div>
-            <div
-              className={`${styles.latest_news_image} ${
-                late.image ? '' : styles.hidden
-              }`}
-            >
-              {late.image && (
+            {late.image && (
+              <div className={styles.latest_news_image}>
                 <Link href={`/News/${late.id}`}>
                   <Image
                     src={`https://www.bimaabazar.com/${late.image}`}
@@ -56,8 +52,11 @@ export default async function Latestnews() {
                     height={700}
                   />
                 </Link>
-              )}
-            </div>
+              </div>
+            )}
+            {!late.image && (
+              <div className={styles.latest_news_image} style={{ display: 'none' }}></div>
+            )}
             <p className={styles.latest_news_image_description}>
               {late.content}
             </p>
