@@ -3,7 +3,6 @@ import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Authoricon from "../public/Gorkha.jpg";
-import digital from "../public/digital.jpg";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
 async function getAllNews() {
@@ -11,21 +10,23 @@ async function getAllNews() {
   const data = await response.json();
   return data;
 }
-// import { useState,useEffect } from "react";
+
+const NullableImage = ({ src, alt }) => {
+  return src ? <Image src={src} alt={alt} width={1248} height={700} /> : null;
+};
+
 export default async function Latestnews() {
-  // const [news, setNews] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
-  //     const data = await res.json();
-  //     setNews(data);
-  //   }
-  //   fetchData();
-  // }, []);
+  const [news, setNews] = React.useState([]);
 
-
-  const news = await getAllNews();
+  React.useEffect(() => {
+    async function fetchData() {
+      const data = await getAllNews();
+      setNews(data);
+    }
+    fetchData();
+  }, []);
+  // const news = await getAllNews();
 
   return (
     <>
@@ -58,11 +59,9 @@ export default async function Latestnews() {
             </div>
             <div className={styles.latest_news_image}>
               <Link href={`/News/${late.id}`}>
-                <Image
+              <NullableImage
                   src={`https://www.bimaabazar.com/${late.image}`}
                   alt=""
-                  width={1248}
-                  height={700}
                 />
               </Link>
             </div>
