@@ -9,7 +9,7 @@ import Mukhya from "../../components/Mukhya";
 import PradeshSamachar from "../../components/PradeshSamachar";
 import Samachar from "../../components/Samachar";
 import "./globals.css";
-export default function Home({ news }) {
+export default function Home() {
   return (
     <>
       <Hottopic />

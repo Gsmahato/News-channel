@@ -6,26 +6,26 @@ import Authoricon from "../public/Gorkha.jpg";
 import digital from "../public/digital.jpg";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
-// async function getAllNews() {
-//   const response = await fetch("https://www.bimaabazar.com/newsportal/news/");
-//   const data = await response.json();
-//   return data;
-// }
-import { useState,useEffect } from "react";
+async function getAllNews() {
+  const response = await fetch("https://www.bimaabazar.com/newsportal/news/");
+  const data = await response.json();
+  return data;
+}
+// import { useState,useEffect } from "react";
 export default async function Latestnews() {
-  const [news, setNews] = useState([]);
+  // const [news, setNews] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
-      const data = await res.json();
-      setNews(data);
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
+  //     const data = await res.json();
+  //     setNews(data);
+  //   }
+  //   fetchData();
+  // }, []);
 
 
-  // const news = await getAllNews();
+  const news = await getAllNews();
 
   return (
     <>
