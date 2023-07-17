@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,23 +10,8 @@ async function getAllNews() {
   const data = await response.json();
   return data;
 }
-
-const NullableImage = ({ src, alt }) => {
-  return src ? <Image src={src} alt={alt} width={1248} height={700} /> : null;
-};
-
 export default async function Latestnews() {
-
-  const [news, setNews] = React.useState([]);
-
-  React.useEffect(() => {
-    async function fetchData() {
-      const data = await getAllNews();
-      setNews(data);
-    }
-    fetchData();
-  }, []);
-  // const news = await getAllNews();
+  const news = await getAllNews();
 
   return (
     <>
@@ -58,12 +43,18 @@ export default async function Latestnews() {
               </div>
             </div>
             <div className={styles.latest_news_image}>
-              <Link href={`/News/${late.id}`}>
-              <NullableImage
-                  src={`https://www.bimaabazar.com/${late.image}`}
-                  alt=""
-                />
-              </Link>
+              {late.image && (
+                <div className={styles.latest_news_image}>
+                  <Link href={`/News/${late.id}`}>
+                    <Image
+                      src={`https://www.bimaabazar.com/${late.image}`}
+                      alt=""
+                      width={1248}
+                      height={700}
+                    />
+                  </Link>
+                </div>
+              )}
             </div>
             <p className={styles.latest_news_image_description}>
               {late.content}
