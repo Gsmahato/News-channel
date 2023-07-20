@@ -6,16 +6,16 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import {
-  RiDashboardLine,
-  RiAdminFill,
-  RiGridLine,
-  RiNewspaperLine,
-} from "react-icons/ri";
-import { FaUserAlt } from "react-icons/fa";
-// import { AiOutlineClose } from "react-icons/ai";
-// import { FiMenu, FiUserPlus } from "react-icons/fi";
-import { BiRightArrow, BiDownArrow } from "react-icons/bi";
+// import {
+//   RiDashboardLine,
+//   RiAdminFill,
+//   RiGridLine,
+//   RiNewspaperLine,
+// } from "react-icons/ri";
+// import { FaUserAlt } from "react-icons/fa";
+// // import { AiOutlineClose } from "react-icons/ai";
+// // import { FiMenu, FiUserPlus } from "react-icons/fi";
+// import { BiRightArrow, BiDownArrow } from "react-icons/bi";
 import NewsEditor from "../../../../components/NewsEditor";
 
 const Newswrite = () => {
@@ -69,7 +69,6 @@ const Newswrite = () => {
       setAuthor(1);
       setFeatured(false);
       setLatest(false);
-
     } catch (error) {
       console.error("Error posting news:", error);
       toast.error("Failed to add news");
@@ -88,6 +87,11 @@ const Newswrite = () => {
     };
 
     fetchNews();
+  }, []);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
   }, []);
   return (
     <>
@@ -135,19 +139,25 @@ const Newswrite = () => {
                             </div>
                           </div>
                         </div>
-                        <div className={styles.row}>
-                          <div className={styles.content_col}>
-                            <div className={styles.content_col_form_group}>
-                              <NewsEditor
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                require
-                                content={content}
-                                setContent={setContent}
-                              />
+                        {isClient && (
+                          <div className={styles.row}>
+                            <div className={styles.content_col}>
+                              <div className={styles.content_col_form_group}>
+                                {import(
+                                  "../../../../components/NewsEditor"
+                                ).then(({ default: NewsEditor }) => (
+                                  <NewsEditor
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
+                                    require
+                                    content={content}
+                                    setContent={setContent}
+                                  />
+                                ))}
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        )}
                         <div className={styles.row}>
                           <div className={styles.content_col}>
                             <div className={styles.content_col_form_group}>
