@@ -490,6 +490,12 @@ white-space: nowrap;
   flex-basis: 73%;
   padding-right: 1.875rem;
 }
+.col_left_bijnesh{
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  padding-right: 1.875rem;
+}
 .mukhya_news_grid{
   display: grid;
   grid-gap: 1.875rem;
@@ -729,6 +735,10 @@ white-space: nowrap;
 .span_12{
   grid-column: span 12;
 }
+.span_12_bijnesh{
+  margin-bottom: 2rem;
+  display: flex;
+}
 .span_7{
  grid-column: span 7;
  grid-row: span 5;
@@ -739,6 +749,16 @@ white-space: nowrap;
   height: 100%;
   justify-content: center;
   align-items: center;
+}
+.samachar_spot_news_bijnesh{
+  display: flex;
+  flex: 6;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.5%;
+
 }
 .post_img{
   overflow: hidden;
@@ -751,6 +771,12 @@ white-space: nowrap;
   border-radius: 1%;
   height: 100%;
   width: 25.81rem;
+}
+.post_img_2_bijnesh{
+  overflow: hidden;
+  border-radius: 1%;
+  height: 100%;
+  width: 35rem;
 }
 .post_title{
   background-color: #f3f6f8;
@@ -791,13 +817,26 @@ white-space: nowrap;
   width: 26.8125rem;
   height: 5.125rem;
 }
+
 .post_con{
   display: flex;
   text-decoration: none;
   border-radius: 1%;
 }
+.post_con_bijnesh{
+  height: 100%;
+  text-decoration: none;
+  border-radius: 1%;
+}
+.content_wrap_bijnesh{
+  margin-top: 1rem;
+  flex: 2;
+} 
 .post_con>img{
   border-radius: 2%;
+}
+.post_con_bijnesh>img{
+  border-radius: 1.5%;
 }
 
 .content_wrap{
@@ -810,6 +849,17 @@ white-space: nowrap;
   line-height: 1.3;
   font-family: mukta,sans-serif;
   font-weight: 500;
+}
+.title_text_bijnesh{
+  margin: 0;
+  font-size: 1.2rem;
+  color: #23252d;
+  line-height: 1.3;
+  font-family: mukta,sans-serif;
+  font-weight: 600;
+}
+.pagination_content{
+  margin-top: 2.4rem;
 }
 .prachar{
   padding-top: 3rem;
@@ -842,7 +892,7 @@ white-space: nowrap;
   flex: 2;
   align-self: center;
   padding: 3.75rem;
-  height: 24rem;
+  height: 24.1rem;
   width: 25.81rem;
   overflow: hidden;
 }
@@ -908,6 +958,9 @@ white-space: nowrap;
   margin: 0 0.25rem;
 }
 .span_4{
+  grid-column: span 4;
+}
+.span_4_bijnesh{
   grid-column: span 4;
 }
 .post_content_wrap{

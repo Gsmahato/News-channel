@@ -8,6 +8,7 @@ import banner from '../public/banner.gif'
 import {PiUserCircle } from "react-icons/pi";
 import { RiMenuLine} from "react-icons/ri";
 import SideMenu from "./SideMenu";
+import NepaliDateComponent from './NepaliDate';
 
 
 const Topheader = () => {
@@ -33,7 +34,7 @@ const Topheader = () => {
                     <Link href="/">
                     <Image src={logo} width={268} height={31} alt=''/>
                     </Link>
-                    <div className={styles.currenttime}>6/24/2023</div>
+                    <div className={styles.currenttime}><NepaliDateComponent/></div>
                 </div>
                 <div className={styles.head_adv}>
                     <div className={styles.ad}>

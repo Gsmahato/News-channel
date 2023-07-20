@@ -25,9 +25,10 @@ const Navbar = () => {
               <li className={styles.menu_item}>
                 <Link href="/">होमपेज</Link>
               </li>
-              <li className={styles.menu_item}>विजनेस</li>
+              <li className={styles.menu_item}>
+                <Link href="/bijnesh">विजनेस</Link>
+              </li>
               <li className={styles.menu_item}>जीवनशैली</li>
-              <li className={styles.menu_item}>विजनेस</li>
               <li className={styles.menu_item}>मनोरन्जन</li>
               <li className={styles.menu_item}>खेलकुद</li>
               <li className={styles.menu_item}>विजनेस</li>
