@@ -1,13 +1,14 @@
-"use client";
-import React, { useState } from "react";
-import styles from "../../styles/newStyles.module.css";
+// "use client";
+// import React, { useState } from "react";
+// import styles from "../../styles/newStyles.module.css";
 
 const allnewspage = () => {
-  const [newsList, setNewsList] = useState([]);
+  // const [newsList, setNewsList] = useState([]);
 
   return (
     <>
-      <div className={styles.app_main_outer}>
+    Hello
+      {/* <div className={styles.app_main_outer}>
         <div className={styles.app_main_inner}>
           <div className={styles.row}>
             <div className={styles.main_content}>
@@ -28,7 +29,7 @@ const allnewspage = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
