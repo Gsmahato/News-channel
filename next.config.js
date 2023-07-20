@@ -2,18 +2,15 @@
 const nextConfig = {
   output: "export",
   reactStrictMode: true,
-};
-
-module.exports = nextConfig;
-
-module.exports = {
-   future: {
+  future: {
     webpack5: true,
   },
   images: {
     domains: ["www.bimaabazar.com"],
   },
 };
+
+module.exports = nextConfig;
 // /**
 //  * @type {import('next').NextConfig}
 //  */
