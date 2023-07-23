@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { FaRegClock, FaRegCommentAlt } from 'react-icons/fa';
 
 async function getData() {
-  const res = await fetch('https://www.bimaabazar.com/newsportal/news/')
+  const res = await fetch('https://www.bimaabazar.com/newsportal/news/',{cache:'no-store'})
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -66,7 +66,7 @@ export default async function Latestnews() {
           {late.image1 && (
             <div className={styles.latest_news_image}>
               <Link href={`/News/${late.id}`}>
-                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={1248} height={700}/>
+                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={1248} height={800}/>
               </Link>
             </div>
           )}

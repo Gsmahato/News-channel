@@ -461,8 +461,9 @@ white-space: nowrap;
   justify-content: center;
   align-items: center;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 76rem;
+  height: 43rem;
+  overflow: hidden;
 }
 .latest_news_image_description{
   font-size: 1.375rem;
