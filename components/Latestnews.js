@@ -46,7 +46,7 @@ export default async function Latestnews() {
           <div className={styles.title_info}>
             <div className={styles.news_author}>
               <span className={styles.author_icon}>
-                <Image src={`https://www.bimaabazar.com/${late.autor_image}`} alt="" width={100} height={100} />
+                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={100} height={100} />
               </span>
               <span>{late.author}</span>
             </div>
@@ -63,14 +63,14 @@ export default async function Latestnews() {
               <span>0</span>
             </div>
           </div>
-          {late.image && (
+          {late.image1 && (
             <div className={styles.latest_news_image}>
               <Link href={`/News/${late.id}`}>
-                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={1248} height={700} />
+                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={1248} height={700}/>
               </Link>
             </div>
           )}
-          {!late.image && <div className={styles.latest_news_image} style={{ display: 'none' }}></div>}
+          {!late.image1 && <div className={styles.latest_news_image} style={{ display: 'none' }}></div>}
           <p className={styles.latest_news_image_description}>{late.content}</p>
         </div>
       ))}
