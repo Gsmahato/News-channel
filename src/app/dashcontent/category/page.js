@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "../../styles/newStyles.module.css";
 import { ToastContainer, toast } from "react-toastify";
 
-const categorypage = () => {
+const Categorypage = () => {
   const [newCategory, setNewCategory] = useState({
     name: "",
     slug: "",
@@ -106,4 +106,4 @@ const categorypage = () => {
   );
 };
 
-export default categorypage;
+export default Categorypage;
