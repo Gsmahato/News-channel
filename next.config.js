@@ -28,6 +28,12 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
+  experimental: {
+    images: false,
+  },
+  images: {
+    domains: ["www.bimaabazar.com"],
+  },
 };
 
 module.exports = nextConfig;
