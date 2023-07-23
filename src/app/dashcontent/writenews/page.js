@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import styles from "../../styles/newStyles.module.css";
 import axios from "axios";
@@ -68,9 +68,7 @@ export default function Newswrite() {
     fetchNews();
   }, []);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const fetchCategories = async () => {
