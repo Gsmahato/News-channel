@@ -25,7 +25,7 @@ const PradeshSamachar = () => {
                 <Link href="/">६</Link>
                 <Link href="/">७</Link>
               </ul>
-              <Link href="/">
+              <Link href="/pradeshsamachaar">
                 <i className={styles.F_arrow}>
                   <MdArrowForwardIos />
                 </i>

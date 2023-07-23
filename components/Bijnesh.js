@@ -32,7 +32,7 @@ const Bijnesh = () => {
                   <li>अर्थनीति</li>
                 </Link>
               </ul>
-              <Link href="/">
+              <Link href="/bijnesh">
                 <i className={styles.F_arrow}>
                   <MdArrowForwardIos />
                 </i>

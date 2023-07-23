@@ -8,7 +8,7 @@ import prachar from "../public/prachar.gif";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
 
-const Entertainment = () => {
+const Khelkud = () => {
   return (
     <section className={styles.Entertainment_section}>
       <div className={styles.E_container}>
@@ -22,7 +22,7 @@ const Entertainment = () => {
               <Link href="/">मनोरञ्जन भिडियो</Link>
               <Link href="/">ब्लोअप</Link>
             </ul>
-            <Link href="/manoranjan">
+            <Link href="/">
               <i className={styles.F_arrow}>
                 <MdArrowForwardIos />
               </i>
@@ -151,4 +151,4 @@ const Entertainment = () => {
   );
 };
 
-export default Entertainment;
+export default Khelkud;

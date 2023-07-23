@@ -87,6 +87,7 @@ white-space: nowrap;
   height: 100%;
   align-items: center;
   overflow: hidden;
+  justify-content: space-between;
 }
 .E_container{
   margin-left: 8.5rem;
@@ -140,6 +141,8 @@ white-space: nowrap;
 .menu_container{
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .primary_menu{
   padding: 0;
@@ -340,8 +343,6 @@ white-space: nowrap;
 }
 .latest_container{
   padding: 1.5rem 0;
-  margin-left: 8.5rem;
-  margin-right: 8.5rem;
   height: 100%;
   border-bottom: solid 0.016rem rgba(0,0,0,.08);
 }

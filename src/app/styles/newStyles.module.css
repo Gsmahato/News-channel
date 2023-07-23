@@ -127,7 +127,7 @@
   }
   .sidebar{
     /* top: 0; */
-    position: fixed;
+    /* position: fixed; */
     box-shadow: 0.4375rem 0 3.75rem rgba(0,0,0,.05);
     z-index: 9999;
     transition: all .2s;

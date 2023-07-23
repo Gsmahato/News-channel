@@ -1,8 +1,19 @@
-import { getNews } from '@/app/utils/getNews'
+// import getNews from "@/app/lib/getNews";
+async function getData() {
+  const res = await fetch('https://www.bimaabazar.com/newsportal/news/')
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
 
-export default async function Newspage ({params:{id}}){
-    const newsdata = await getNews(id)
+  return res.json()
+}
+export default async function Newspage() {
+  const news = await getData();
   return (
-    <div>{newsdata.content}</div>
-  )
+    <>
+      {news.map((newscontent) => {
+        <div key={newscontent.id}>{newscontent.content}</div>;
+      })}
+    </>
+  );
 }

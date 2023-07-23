@@ -121,7 +121,7 @@ const Sidebar = () => {
                     isUserVisible ? styles.active : ""
                   }`}
                 >
-                  <Link href="/dashboard" onClick={toggleUser}>
+                  <Link href="/dashcontent" onClick={toggleUser}>
                     <i>
                       <FaUserAlt />
                     </i>
@@ -133,7 +133,7 @@ const Sidebar = () => {
                   {isUserVisible && (
                     <ul>
                       <li className={styles.list_item}>
-                        <Link href="/dashboard">
+                        <Link href="/dashcontent">
                           <i>
                             <RiAdminFill />
                           </i>
@@ -146,7 +146,7 @@ const Sidebar = () => {
                         </Link>
                       </li>
                       <li className={styles.list_item}>
-                        <Link href="/dashboard">
+                        <Link href="/dashcontent">
                           <i>
                             <RiAdminFill />
                           </i>
@@ -159,7 +159,7 @@ const Sidebar = () => {
                         </Link>
                       </li>
                       <li className={styles.list_item}>
-                        <Link href="/dashboard">
+                        <Link href="/dashcontent">
                           <i>
                             <RiAdminFill />
                           </i>
@@ -179,7 +179,7 @@ const Sidebar = () => {
                     isCategoryVisible ? styles.active : ""
                   }`}
                 >
-                  <Link href="/dashboard" onClick={toggleCategory}>
+                  <Link href="/dashcontent/allcategory" onClick={toggleCategory}>
                     <i>
                       <i>
                         <RiGridLine />
@@ -193,7 +193,7 @@ const Sidebar = () => {
                   {isCategoryVisible && (
                     <ul>
                       <li className={styles.list_item}>
-                        <Link href="/dashboard/category">
+                        <Link href="/dashcontent/allcategory">
                           <i>
                             <RiGridLine />
                           </i>
@@ -206,7 +206,7 @@ const Sidebar = () => {
                         </Link>
                       </li>
                       <li className={styles.list_item}>
-                        <Link href="/dashboard/category">
+                        <Link href="/dashcontent/category">
                           <i>
                             <RiGridLine />
                           </i>
@@ -226,7 +226,7 @@ const Sidebar = () => {
                     isNewsVisible ? styles.active : ""
                   }`}
                 >
-                  <Link href="/dashboard" onClick={toggleNews}>
+                  <Link href="/dashcontent" onClick={toggleNews}>
                     <i>
                       <RiNewspaperLine />
                     </i>
@@ -238,7 +238,7 @@ const Sidebar = () => {
                   {isNewsVisible && (
                     <ul>
                       <li className={styles.list_item}>
-                        <Link href="/dashboard/allnews">
+                        <Link href="/allnews">
                           <i>
                             <RiNewspaperLine />
                           </i>

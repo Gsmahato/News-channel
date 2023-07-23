@@ -1,45 +1,22 @@
-"use client";
+"use client"
 import { useState, useEffect } from "react";
 import styles from "../../styles/newStyles.module.css";
-import Link from "next/link";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// import {
-//   RiDashboardLine,
-//   RiAdminFill,
-//   RiGridLine,
-//   RiNewspaperLine,
-// } from "react-icons/ri";
-// import { FaUserAlt } from "react-icons/fa";
-// // import { AiOutlineClose } from "react-icons/ai";
-// // import { FiMenu, FiUserPlus } from "react-icons/fi";
-// import { BiRightArrow, BiDownArrow } from "react-icons/bi";
 import NewsEditor from "../../../../components/NewsEditor";
 
-const Newswrite = () => {
-  const [isUserVisible, setUserVisible] = useState(false);
-  const [isCategoryVisible, setCategoryVisible] = useState(false);
-  const [isNewsVisible, setNewsVisible] = useState(false);
-
-  const toggleUser = () => {
-    setUserVisible(!isUserVisible);
-  };
-  const toggleCategory = () => {
-    setCategoryVisible(!isCategoryVisible);
-  };
-  const toggleNews = () => {
-    setNewsVisible(!isNewsVisible);
-  };
+export default function Newswrite() {
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [content, setContent] = useState("");
-  const [category, setCategory] = useState(1);
-  const [author, setAuthor] = useState(1);
+  const [category, setCategory] = useState("");
+  const [author, setAuthor] = useState("");
   const [featured, setFeatured] = useState(false);
   const [latest, setLatest] = useState(false);
   const [newsList, setNewsList] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isClient, setIsClient] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,8 +29,9 @@ const Newswrite = () => {
       author,
       featured,
       latest,
-      trending,
     };
+
+    console.log("newsData:", newsData); // Log the newsData object for debugging
 
     try {
       const response = await axios.post(
@@ -65,8 +43,8 @@ const Newswrite = () => {
       setTitle("");
       setSlug("");
       setContent("");
-      setCategory(1);
-      setAuthor(1);
+      setCategory("");
+      setAuthor("");
       setFeatured(false);
       setLatest(false);
     } catch (error) {
@@ -74,6 +52,7 @@ const Newswrite = () => {
       toast.error("Failed to add news");
     }
   };
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -88,11 +67,26 @@ const Newswrite = () => {
 
     fetchNews();
   }, []);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(
+          "https://www.bimaabazar.com/newsportal/categories/"
+        );
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <>
       <div className={styles.app_main_outer}>
@@ -139,25 +133,20 @@ const Newswrite = () => {
                             </div>
                           </div>
                         </div>
-                        {isClient && (
-                          <div className={styles.row}>
-                            <div className={styles.content_col}>
-                              <div className={styles.content_col_form_group}>
-                                {import(
-                                  "../../../../components/NewsEditor"
-                                ).then(({ default: NewsEditor }) => (
-                                  <NewsEditor
-                                    value={content}
-                                    onChange={(e) => setContent(e.target.value)}
-                                    require
-                                    content={content}
-                                    setContent={setContent}
-                                  />
-                                ))}
-                              </div>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              {/* Use NewsEditor to enter news content */}
+                              <NewsEditor
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
+                                required
+                                content={content}
+                                setContent={setContent}
+                              />
                             </div>
                           </div>
-                        )}
+                        </div>
                         <div className={styles.row}>
                           <div className={styles.content_col}>
                             <div className={styles.content_col_form_group}>
@@ -173,6 +162,21 @@ const Newswrite = () => {
                         <div className={styles.row}>
                           <div className={styles.content_col}>
                             <div className={styles.content_col_form_group}>
+                              <label htmlFor="author">Author</label>
+                              <input
+                                type="text"
+                                name="author"
+                                value={author}
+                                onChange={(e) => setAuthor(e.target.value)}
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <label>Select Category</label>
                               <select
                                 className={styles.select_content}
                                 name="category"
@@ -180,22 +184,19 @@ const Newswrite = () => {
                                 onChange={(e) => setCategory(e.target.value)}
                                 required
                               >
-                                <option value={1}>Category 1</option>
-                                <option value={2}>Category 2</option>
-                              </select>
-                              <select
-                                className={styles.select_content}
-                                name="author"
-                                value={author}
-                                onChange={(e) => setAuthor(e.target.value)}
-                                required
-                              >
-                                <option value={1}>Author</option>
-                                <option value={1}>Author 1</option>
-                                <option value={2}>Author 2</option>
+                                <option value="">Select a category</option>
+                                {categories.map((category) => (
+                                  <option key={category.id} value={category.id}>
+                                    {category.name}
+                                  </option>
+                                ))}
                               </select>
                             </div>
-                            <div className={styles.feature_content}>
+                          </div>
+                        </div>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
                               <label htmlFor="featured">
                                 <input
                                   type="checkbox"
@@ -207,14 +208,12 @@ const Newswrite = () => {
                                 />
                                 Featured
                               </label>
-                              <label htmlFor="featured">
+                              <label htmlFor="latest">
                                 <input
                                   type="checkbox"
-                                  name="featured"
+                                  name="latest"
                                   checked={latest}
-                                  onChange={(e) =>
-                                    setFeatured(e.target.checked)
-                                  }
+                                  onChange={(e) => setLatest(e.target.checked)}
                                 />
                                 Latest News
                               </label>
@@ -240,8 +239,7 @@ const Newswrite = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
-};
-
-export default Newswrite;
+}

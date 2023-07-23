@@ -15,7 +15,7 @@ const Samachar = () => {
           <div className={styles.section_title}>
             <h2 className={styles.title_part}>
               समाचार
-              <Link href="/">
+              <Link href="/samachaar">
                 <i className={styles.F_arrow}>
                   <MdArrowForwardIos />
                 </i>

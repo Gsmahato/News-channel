@@ -2,6 +2,7 @@ import Adbanner from "../../components/Adbanner";
 import Bijnesh from "../../components/Bijnesh";
 import Entertainment from "../../components/Entertainment";
 import Feature from "../../components/Feature";
+import Khelkud from "../../components/Khelkud";
 import Latestnews from "../../components/Latestnews";
 import Mukhya from "../../components/Mukhya";
 import PradeshSamachar from "../../components/PradeshSamachar";
@@ -22,6 +23,7 @@ export default function Home() {
       {/* <Adbanner /> */}
       {/* <Feature /> */}
       <Entertainment />
+      <Khelkud/>
     </>
   );
 }

@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react';
 import { EditorState, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
@@ -12,8 +13,6 @@ const NewsEditor = () => {
   };
 
   const handleImageUpload = (file) => {
-    // Implement your image upload logic here
-    // Once the image is uploaded, add it to the editor
     const contentState = editorState.getCurrentContent();
     const contentStateWithEntity = contentState.createEntity('IMAGE', 'IMMUTABLE', {
       src: URL.createObjectURL(file),

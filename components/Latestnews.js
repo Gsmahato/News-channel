@@ -4,19 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaRegClock, FaRegCommentAlt } from 'react-icons/fa';
 
-// async function getAllNews() {
-//   const response = await fetch('https://www.bimaabazar.com/newsportal/news/');
-//   const data = await response.json();
-//   return data;
-// }
 async function getData() {
   const res = await fetch('https://www.bimaabazar.com/newsportal/news/')
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
- 
+
   return res.json()
 }
+
 function getMinutesAgo(created_at) {
   const createdDate = new Date(created_at);
   const currentDate = new Date();
@@ -25,11 +21,18 @@ function getMinutesAgo(created_at) {
   return minutesAgo;
 }
 
+function formatTime(minutes) {
+  if (minutes < 60) {
+    return `${minutes} minutes ago`;
+  } else {
+    const hours = Math.floor(minutes / 60);
+    return `${hours} hours ago`;
+  }
+}
+
 export default async function Latestnews() {
 
-  // const latestNews = await getAllNews()
   const data = await getData()
-
 
   return (
     <section className={styles.latest}>
@@ -42,7 +45,7 @@ export default async function Latestnews() {
           <div className={styles.title_info}>
             <div className={styles.news_author}>
               <span className={styles.author_icon}>
-                <Image src={`https://www.bimaabazar.com/${late.image}`} alt="" width={100} height={100} />
+                <Image src={`https://www.bimaabazar.com/${late.autor_image}`} alt="" width={100} height={100} />
               </span>
               <span>{late.author}</span>
             </div>
@@ -50,7 +53,7 @@ export default async function Latestnews() {
               <i>
                 <FaRegClock />
               </i>
-              <span>{getMinutesAgo(late.created_at)} मिनेट अगाडि</span>
+              <span>{formatTime(getMinutesAgo(late.created_at))}</span>
             </div>
             <div className={styles.news_comment}>
               <i>
@@ -73,4 +76,3 @@ export default async function Latestnews() {
     </section>
   );
 }
-
