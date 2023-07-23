@@ -66,7 +66,7 @@ export default async function Latestnews() {
           {late.image && (
             <div className={styles.latest_news_image}>
               <Link href={`/News/${late.id}`}>
-                <Image src={`https://www.bimaabazar.com/${late.image}`} alt="" width={1248} height={700} />
+                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={1248} height={700} />
               </Link>
             </div>
           )}

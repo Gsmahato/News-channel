@@ -238,7 +238,7 @@ const Sidebar = () => {
                   {isNewsVisible && (
                     <ul>
                       <li className={styles.list_item}>
-                        <Link href="/allnews">
+                        <Link href="/dashcontent/allnews">
                           <i>
                             <RiNewspaperLine />
                           </i>
