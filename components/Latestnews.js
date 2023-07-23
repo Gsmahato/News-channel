@@ -32,6 +32,7 @@ function formatTime(minutes) {
 
 export default async function Latestnews() {
   const data = await getData();
+  console.log(data)
   data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   return (
@@ -41,6 +42,7 @@ export default async function Latestnews() {
           <Link href={`/News/${late.slug}`}>
             <h2>{late.title}</h2>
           </Link>
+         <h4>{late.id}</h4> 
 
           <div className={styles.title_info}>
             <div className={styles.news_author}>
