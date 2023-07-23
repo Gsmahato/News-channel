@@ -33,6 +33,7 @@ function formatTime(minutes) {
 export default async function Latestnews() {
 
   const data = await getData()
+  data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   return (
     <section className={styles.latest}>
