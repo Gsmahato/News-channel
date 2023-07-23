@@ -1,16 +1,16 @@
-import React from 'react';
-import styles from '../src/app/page.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaRegClock, FaRegCommentAlt } from 'react-icons/fa';
+import React from "react";
+import styles from "../src/app/page.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
 async function getData() {
-  const res = await fetch('https://www.bimaabazar.com/newsportal/news/',{cache:'no-store'})
+  const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error("Failed to fetch data");
   }
 
-  return res.json()
+  return res.json();
 }
 
 function getMinutesAgo(created_at) {
@@ -31,8 +31,7 @@ function formatTime(minutes) {
 }
 
 export default async function Latestnews() {
-
-  const data = await getData()
+  const data = await getData();
   data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   return (
@@ -46,7 +45,12 @@ export default async function Latestnews() {
           <div className={styles.title_info}>
             <div className={styles.news_author}>
               <span className={styles.author_icon}>
-                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={100} height={100} />
+                <Image
+                  src={`https://www.bimaabazar.com/${late.image1}`}
+                  alt=""
+                  width={100}
+                  height={100}
+                />
               </span>
               <span>{late.author}</span>
             </div>
@@ -66,11 +70,21 @@ export default async function Latestnews() {
           {late.image1 && (
             <div className={styles.latest_news_image}>
               <Link href={`/News/${late.id}`}>
-                <Image src={`https://www.bimaabazar.com/${late.image1}`} alt="" width={1248} height={800}/>
+                <Image
+                  src={`https://www.bimaabazar.com/${late.image1}`}
+                  alt=""
+                  width={1248}
+                  height={800}
+                />
               </Link>
             </div>
           )}
-          {!late.image1 && <div className={styles.latest_news_image} style={{ display: 'none' }}></div>}
+          {!late.image1 && (
+            <div
+              className={styles.latest_news_image}
+              style={{ display: "none" }}
+            ></div>
+          )}
           <p className={styles.latest_news_image_description}>{late.content}</p>
         </div>
       ))}
