@@ -11,7 +11,7 @@ async function getCategory() {
   return res.json();
 }
 
-export default async function allcategorypage() {
+export default async function Allcategorypage() {
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const handleCheckboxChange = (categoryId) => {
