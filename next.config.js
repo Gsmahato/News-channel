@@ -7,6 +7,7 @@ const nextConfig = {
   },
   images: {
     domains: ["www.bimaabazar.com"],
+    unoptimized: true, // Add this line to enable unoptimized images
   },
 };
 

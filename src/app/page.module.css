@@ -87,7 +87,7 @@ white-space: nowrap;
   height: 100%;
   align-items: center;
   overflow: hidden;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .E_container{
   margin-left: 8.5rem;

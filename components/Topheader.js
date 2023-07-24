@@ -37,11 +37,11 @@ const Topheader = () => {
               <NepaliDateComponent />
             </div>
           </div>
-          <div className={styles.head_adv}>
+          {/* <div className={styles.head_adv}>
             <div className={styles.ad}>
               <Image src={banner} width={700} height={70} alt="" />
             </div>
-          </div>
+          </div> */}
           <div className={styles.nav_menu} onClick={handleMenuClick}>
             <i className={styles.activity_icon}>
               <RiMenuLine />

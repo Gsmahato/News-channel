@@ -38,12 +38,10 @@ export default async function Latestnews() {
   return (
     <section className={styles.latest}>
       {data.map((late) => (
-        <div className={styles.latest_container} key={late.slug}>
+        <div className={styles.latest_container} key={late.id}>
           <Link href={`/News/${late.slug}`}>
             <h2>{late.title}</h2>
           </Link>
-         <h4>{late.id}</h4> 
-
           <div className={styles.title_info}>
             <div className={styles.news_author}>
               <span className={styles.author_icon}>

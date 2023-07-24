@@ -8,22 +8,23 @@ import Mukhya from "../../components/Mukhya";
 import PradeshSamachar from "../../components/PradeshSamachar";
 import Samachar from "../../components/Samachar";
 import "./globals.css";
+import RootLayout from "./layout";
 export default function Home() {
   return (
     <>
-      {/* <Adbanner /> */}
-      <Latestnews/>
-      {/* <Adbanner /> */}
-      <Mukhya />
-      <Samachar />
-      {/* <Adbanner /> */}
-      <Bijnesh />
-     {/* <Adbanner /> */}
-       <PradeshSamachar />
-      {/* <Adbanner /> */}
-      {/* <Feature /> */}
-      <Entertainment />
-      <Khelkud/>
+        {/* <Adbanner /> */}
+        <Latestnews />
+        {/* <Adbanner /> */}
+        <Mukhya />
+        <Samachar />
+        {/* <Adbanner /> */}
+        <Bijnesh />
+        {/* <Adbanner /> */}
+        <PradeshSamachar />
+        {/* <Adbanner /> */}
+        {/* <Feature /> */}
+        <Entertainment />
+        <Khelkud />
     </>
   );
 }
