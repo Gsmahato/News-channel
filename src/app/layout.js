@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import Hottopic from "../../components/Hottopic";
 import "./globals.css";
 import styles from "./page.module.css";
-export const metadata = {
+const metadata = {
   title: "abiralsanchar",
   description: "This is abiralsanchar",
 };
