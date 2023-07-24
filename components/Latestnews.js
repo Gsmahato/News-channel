@@ -1,12 +1,14 @@
 "use client"
-import React,{ useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
 async function getData() {
-  const res = await fetch("https://www.bimaabazar.com/newsportal/news/?cache_bust=12345");
+  const res = await fetch(
+    "https://www.bimaabazar.com/newsportal/news/?cache_bust=12345"
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -31,7 +33,17 @@ function formatTime(minutes) {
   }
 }
 
-export default  function Latestnews() {
+function truncateContent(content, maxWords) {
+  if (typeof content !== "string") {
+    return "";
+  }
+
+  const words = content.trim().split(" ");
+  const truncated = words.slice(0, maxWords).join(" ");
+  return truncated + (words.length > maxWords ? "..." : "");
+}
+
+export default function Latestnews() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -40,9 +52,6 @@ export default  function Latestnews() {
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []); // Empty dependency array means this effect runs only once, on mount.
-
-  // const data = getData();
-  // data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   return (
     <section className={styles.latest}>
@@ -94,7 +103,10 @@ export default  function Latestnews() {
               style={{ display: "none" }}
             ></div>
           )}
-          <p className={styles.latest_news_image_description}>{late.content}</p>
+          {/* Display truncated content */}
+          <p className={styles.latest_news_image_description}>
+            {truncateContent(late.content, 100)}
+          </p>
         </div>
       ))}
     </section>
