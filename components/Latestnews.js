@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React,{ useState,useEffect} from "react";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -30,10 +31,18 @@ function formatTime(minutes) {
   }
 }
 
-export default async function Latestnews() {
-  const data = await getData();
-  console.log(data)
-  data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+export default  function Latestnews() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Fetch data when the component mounts
+    getData()
+      .then((data) => setData(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []); // Empty dependency array means this effect runs only once, on mount.
+
+  // const data = getData();
+  // data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   return (
     <section className={styles.latest}>
