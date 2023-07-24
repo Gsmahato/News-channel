@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
 async function getData() {
-  const res = await fetch("https://www.bimaabazar.com/newsportal/news/");
+  const res = await fetch("https://www.bimaabazar.com/newsportal/news/?cache_bust=12345");
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
