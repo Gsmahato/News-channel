@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useRouter } from 'next/navigation'
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
@@ -20,7 +20,6 @@ async function getCategory() {
 
 export default async function Navbar(){
   const [showSideMenu, setShowSideMenu] = useState(false);
-  // const [otherMenuItems, setOtherMenuItems] = useState([]);
   const router = useRouter()
 
   // useEffect(() => {

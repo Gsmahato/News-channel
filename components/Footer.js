@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import logo from "../public/abiralsancharlogo.svg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 async function getCategory() {
   const res = await fetch(
@@ -16,7 +18,12 @@ async function getCategory() {
 }
 
 export default async function Footer() {
+  const router = useRouter()
+
   const cat = await getCategory();
+  const handleMenuItemClick = (categoryID) => {
+    router.push(`/category/${categoryID}`);
+  };
   return (
     <>
       <footer className={styles.site_footer}>
@@ -24,16 +31,22 @@ export default async function Footer() {
           <div className={styles.flx_wrap}>
             <div>
               <h4>समाचार</h4>
-              {cat.map((category) => (
-                <ul key={category.id}>
-                  <li>{category.name}</li>
-                </ul>
-              ))}
+
+              <ul>
+                {cat.map((category) => (
+                  <li className={styles.footerdata}
+                    key={category.id}
+                    onClick={() => handleMenuItemClick(category.id)}
+                  >
+                    {category.name}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div>
               <h4>विजनेस</h4>
               <ul>
-                <li>
+                {/* <li>
                   <Link href="/">समाज</Link>
                 </li>
                 <li>
@@ -47,13 +60,13 @@ export default async function Footer() {
                 </li>
                 <li>
                   <Link href="/">समाज</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div>
               <h4>मनोरञ्जन</h4>
               <ul>
-                <li>
+                {/* <li>
                   <Link href="/">समाज</Link>
                 </li>
                 <li>
@@ -67,13 +80,13 @@ export default async function Footer() {
                 </li>
                 <li>
                   <Link href="/">समाज</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div>
               <h4>विशेष श्रृंखला</h4>
               <ul>
-                <li>
+                {/* <li>
                   <Link href="/">समाज</Link>
                 </li>
                 <li>
@@ -87,13 +100,13 @@ export default async function Footer() {
                 </li>
                 <li>
                   <Link href="/">समाज</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div>
               <h4>ताजाखबर</h4>
               <ul>
-                <li>
+                {/* <li>
                   <Link href="/">समाज</Link>
                 </li>
                 <li>
@@ -103,11 +116,11 @@ export default async function Footer() {
                   <Link href="/">समाज</Link>
                 </li>
                 <li>
-                  <Link href="/">समाज</Link>
+                  <Link href="/">प्राइभेसी पोलिसी</Link>
                 </li>
                 <li>
-                  <Link href="/">समाज</Link>
-                </li>
+                  <Link href="/">सम्पर्क</Link>
+                </li> */}
               </ul>
             </div>
           </div>
