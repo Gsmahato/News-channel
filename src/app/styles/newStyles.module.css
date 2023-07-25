@@ -271,12 +271,11 @@
     display: flex;
   }
   .app_main_outer{
-    z-index: 9;
     flex: 1 1;
-    /* padding-left: 17.5rem; */
     flex-direction: column;
     display: flex;
-    z-index: 12;
+    z-index: 9;
+    position: relative;
   }
   .app_main_inner{
     padding: 30px 30px 0;
@@ -473,3 +472,7 @@
     cursor: pointer;
     padding: 8px 16px;
   }
+  .dasc{
+    display: flex;
+  }
+ 

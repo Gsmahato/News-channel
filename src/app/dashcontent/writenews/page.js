@@ -69,9 +69,8 @@ export default function Newswrite() {
       formData.append("image1", imageFile, imageFile.name);
     }
     console.log(imageFile);
-console.log(image);
-console.log(formData);
-
+    console.log(image);
+    console.log(formData);
 
     try {
       const response = await fetch(
@@ -82,7 +81,6 @@ console.log(formData);
         }
       );
       console.log(response);
-
 
       if (response.ok) {
         console.log("News posted successfully:", response.data);
@@ -104,165 +102,166 @@ console.log(formData);
     }
   };
 
-
   return (
-    <div className={styles.app_main_outer}>
-      <div className={styles.app_main_inner}>
-        <div className={styles.row}>
-          <div className={styles.main_content}>
-            <div className={styles.main_content_bar}>&nbsp;</div>
-            <span className={styles.main_content_title}>New News</span>
-            <div>
-              <div className={styles.write_content}>
-                <h4>Create News</h4>
-                <form onSubmit={handleSubmit} className={styles.news_form}>
-                  <ul>
-                    <li>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            <input
-                              type="text"
-                              name="news_title"
-                              required
-                              placeholder="News title *"
-                              value={title}
-                              onChange={(e) => setTitle(e.target.value)}
-                            />
+      <div className={styles.app_main_outer}>
+        <div className={styles.app_main_inner}>
+          <div className={styles.row}>
+            <div className={styles.main_content}>
+              <div className={styles.main_content_bar}>&nbsp;</div>
+              <span className={styles.main_content_title}>New News</span>
+              <div>
+                <div className={styles.write_content}>
+                  <h4>Create News</h4>
+                  <form onSubmit={handleSubmit} className={styles.news_form}>
+                    <ul>
+                      <li>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <input
+                                type="text"
+                                name="news_title"
+                                required
+                                placeholder="News title *"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            <input
-                              type="text"
-                              name="news_slug"
-                              required
-                              placeholder="Slug *"
-                              value={slug}
-                              onChange={(e) => setSlug(e.target.value)}
-                            />
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <input
+                                type="text"
+                                name="news_slug"
+                                required
+                                placeholder="Slug *"
+                                value={slug}
+                                onChange={(e) => setSlug(e.target.value)}
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            {/* <NewsEditor
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              {/* <NewsEditor
                               value={content}
                               onChange={(e) => setContent(e.target.value)}
                               required
                               content={content}
                               setContent={setContent}
                             /> */}
-                            <textarea
-                              name="news_content"
-                              required
-                              placeholder="News content *"
-                              value={content}
-                              onChange={(e) => setContent(e.target.value)}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            <label>Choose feature image</label>
-                            <input
-                              type="file"
-                              name="image"
-                              onChange={handleImageChange}
-                              className={styles.form_control}
-                            />
-                            {image && <img src={image} alt="Selected" />}
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            <label htmlFor="author">Author</label>
-                            <input
-                              type="text"
-                              name="author"
-                              required
-                              value={author}
-                              onChange={(e) => setAuthor(e.target.value)}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            <label>Select Category</label>
-                            <select
-                              name="category"
-                              value={category}
-                              onChange={(e) => setCategory(e.target.value)}
-                              required
-                            >
-                              <option value="">Select a category</option>
-                              {categories.map((categoryItem) => (
-                                <option
-                                  key={categoryItem.id}
-                                  value={categoryItem.id}
-                                >
-                                  {categoryItem.name}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <div className={styles.content_col_form_group}>
-                            <div>
-                              <label>
-                                <input
-                                  type="checkbox"
-                                  name="featured"
-                                  checked={featured}
-                                  onChange={(e) =>
-                                    setFeatured(e.target.checked)
-                                  }
-                                />
-                                Featured
-                              </label>
-                              <label>
-                                <input
-                                  type="checkbox"
-                                  name="latest"
-                                  checked={latest}
-                                  onChange={(e) => setLatest(e.target.checked)}
-                                />
-                                Latest News
-                              </label>
+                              <textarea
+                                name="news_content"
+                                required
+                                placeholder="News content *"
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
+                              />
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={styles.row}>
-                        <div className={styles.content_col}>
-                          <button
-                            type="submit"
-                            className={styles.content_submit_btn}
-                          >
-                            Submit
-                          </button>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <label>Choose feature image</label>
+                              <input
+                                type="file"
+                                name="image"
+                                onChange={handleImageChange}
+                                className={styles.form_control}
+                              />
+                              {image && <img src={image} alt="Selected" />}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </li>
-                  </ul>
-                </form>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <label htmlFor="author">Author</label>
+                              <input
+                                type="text"
+                                name="author"
+                                required
+                                value={author}
+                                onChange={(e) => setAuthor(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <label>Select Category</label>
+                              <select
+                                name="category"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                                required
+                              >
+                                <option value="">Select a category</option>
+                                {categories.map((categoryItem) => (
+                                  <option
+                                    key={categoryItem.id}
+                                    value={categoryItem.id}
+                                  >
+                                    {categoryItem.name}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <div className={styles.content_col_form_group}>
+                              <div>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    name="featured"
+                                    checked={featured}
+                                    onChange={(e) =>
+                                      setFeatured(e.target.checked)
+                                    }
+                                  />
+                                  Featured
+                                </label>
+                                <label>
+                                  <input
+                                    type="checkbox"
+                                    name="latest"
+                                    checked={latest}
+                                    onChange={(e) =>
+                                      setLatest(e.target.checked)
+                                    }
+                                  />
+                                  Latest News
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className={styles.row}>
+                          <div className={styles.content_col}>
+                            <button
+                              type="submit"
+                              className={styles.content_submit_btn}
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }
