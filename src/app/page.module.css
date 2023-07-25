@@ -2201,6 +2201,9 @@ white-space: nowrap;
 }
 .mobfooter>ul>li{
   margin: 0.5rem 0;
+  font-size: 1.1rem;
+  font-family: mukta,sans-serif;
+  font-weight: 600;
 }
 .footer_info{
   padding: 1rem;
