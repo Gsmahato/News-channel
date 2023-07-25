@@ -18,7 +18,7 @@ async function getCategory() {
 }
 
 export default async function Footer() {
-  const router = useRouter()
+  const router = useRouter();
 
   const cat = await getCategory();
   const handleMenuItemClick = (categoryID) => {
@@ -34,7 +34,8 @@ export default async function Footer() {
 
               <ul>
                 {cat.map((category) => (
-                  <li className={styles.footerdata}
+                  <li
+                    className={styles.footerdata}
                     key={category.id}
                     onClick={() => handleMenuItemClick(category.id)}
                   >
@@ -125,6 +126,23 @@ export default async function Footer() {
             </div>
           </div>
         </div>
+        <div className={styles.mobfootercontent}>
+          <div className={styles.mobfooter}>
+            <h4>समाचार</h4>
+
+            <ul>
+              {cat.map((category) => (
+                <li
+                  className={styles.footerdata}
+                  key={category.id}
+                  onClick={() => handleMenuItemClick(category.id)}
+                >
+                  {category.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </footer>
       <div className={styles.footer_info}>
         <div className={styles.footer_container}>
@@ -150,7 +168,7 @@ export default async function Footer() {
           </div>
           <div className={styles.footer_editor_info}>
             <h5>
-              <span>सम्पर्क रहने स्थान :</span>काठमाडौं ३१ शान्तीनगर
+              <span>सम्पर्क स्थान :</span>काठमाडौं ३१ शान्तीनगर
             </h5>
           </div>
           <div className={styles.footer_editor_info}>

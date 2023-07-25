@@ -1091,9 +1091,7 @@ white-space: nowrap;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.footerdata{
-  cursor: pointer;
-}
+
 .flx_wrap>div>h4{
   font-size: 22px;
   margin: 0 0 20px;
@@ -1117,6 +1115,9 @@ white-space: nowrap;
 .flx_wrap>div>ul{
   padding: 0;
 
+}
+.footerdata{
+  cursor: pointer;
 }
 .footer_info{
   padding: 40px;
@@ -1300,6 +1301,9 @@ white-space: nowrap;
     color: #2577fd;
     text-transform: uppercase;
     font-weight: 400;
+}
+.mobfooter{
+  display: none;
 }
 
 
@@ -1658,6 +1662,9 @@ white-space: nowrap;
   align-items: center;
   justify-content: space-between;
 }
+.mobfooter{
+  display: none;
+}
 
 }
 @media (max-width: 767px){
@@ -1669,6 +1676,7 @@ white-space: nowrap;
     border-bottom: solid 1px rgba(34,96,191,.14);
     overflow: hidden;
     position: sticky;
+    padding: 0.5rem 0;
    
   }
   .container{
@@ -1691,13 +1699,16 @@ white-space: nowrap;
     transition: all .3s ease;
   }
   .logo{
-    width: 14rem;
-    height: 3.375rem;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+    width: 10rem;
+    height: 4rem;
     margin: 0;
     padding: 0;
   }
   .logo>a>img{
-    width: 14rem;
+    width: 3rem;
   }
   .activity_icon{
     width: 100%;
@@ -2153,16 +2164,66 @@ white-space: nowrap;
 }
 .site_footer{
   margin: 0 0.5rem 0 0.5rem;
+  padding: 1rem 0;
 }
 .footer_container{
-  display: block;
-  border: none;
+  border-right: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .footer_editor_info>h5{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.mobfootercontent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flx_wrap{
+  display: none;
+}
+.mobfooter{
+  display: block;
+  margin: 0 auto;
+}
+.mobfooter>h4{
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+.mobfooter>ul{
+  list-style: none;
+  padding: 0;
+  margin-left: 0.8rem;
+}
+.mobfooter>ul>li{
+  margin: 0.5rem 0;
+}
+.footer_info{
+  padding: 1rem;
+}
+.logo_wrap{
+  padding: 0;
+  margin: 0;
+  border-right: none;
+}
+.footer_editor_info{
+  padding: 0;
+  margin: 0;
+  border-right: none;
+}
+.footer_editor_info>h5{
+  font-size: 1.1rem;
+
+}
+.footer_editor_info>h5>span{
+  font-size: 1.1rem;
+}
+
+
    
    
 }

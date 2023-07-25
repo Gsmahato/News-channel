@@ -1,42 +1,28 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import styles from "../../page.module.css"
-
-async function getData(id) {
-  try {
-    const res = await fetch(`https://www.bimaabazar.com/newsportal/news/${id}`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch data. Status: ${res.status}`);
+async function getNews(slug) {
+    try {
+      const response = await fetch(
+        `https://www.bimaabazar.com/newsportal/news/${slug}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch news");
+      }
+      return response.json();
+    } catch (error) {
+      console.error("Error fetching news:", error);
+      throw error;
     }
-
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    throw error; // Rethrow the error to be caught by the component
   }
-}
-export default function Newspage({ id }) {
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    // Fetch data when the component mounts or when 'id' changes
-    getData(id)
-      .then((data) => setNews(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [id]); // Fetch data whenever the 'id' changes
-
-  return (
-    <>
-    <div className={styles.contentdetailpage}>
-      {news.map((newscontent) => (
-        <div className={styles.container} key={newscontent.id}>
-          {newscontent.content}
-          </div>
-      ))}
-      </div>
-    </>
-  );
-}
-
-
-
+  
+  export default async function News({ params: { slug } }) {
+    try {
+      const newsData = await getNews(slug);
+      console.log(newsData);
+      return <h2>{newsData.id}</h2>;
+    } catch (error) {
+      // Handle errors here if needed.
+      console.error("Error in News component:", error);
+      return <h2>Error fetching news</h2>; // Return a default value or handle the error as per your requirement.
+    }
+  }
+  
+  
