@@ -2205,6 +2205,7 @@ white-space: nowrap;
   font-size: 1.1rem;
   font-family: mukta,sans-serif;
   font-weight: 600;
+  cursor: pointer;
 }
 .footer_info{
   padding: 1rem;
