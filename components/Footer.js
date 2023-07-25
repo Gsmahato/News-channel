@@ -5,9 +5,9 @@ import logo from "../public/abiralsancharlogo.svg";
 import Image from "next/image";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 async function getCategory() {
-  const res = await fetch("https://www.bimaabazar.com/newsportal/categories/", {
-    next: { revalidate: 1 },
-  });
+  const res = await fetch(
+    "https://www.bimaabazar.com/newsportal/categories/?cache_bust=12345"
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
