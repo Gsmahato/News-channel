@@ -4,7 +4,7 @@ import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import logo from "../public/abiralsancharlogo.svg";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation'
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 async function getCategory() {
   const res = await fetch(

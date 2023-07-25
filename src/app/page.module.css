@@ -2027,11 +2027,13 @@ white-space: nowrap;
     line-height: 1.2;
     font-family: mukta,sans-serif;
     margin-right: 0.5rem;
+    padding-right: 0.3rem;
   }
   .post_title_2>p{
     font-family: mukta,sans-serif;
     font-size: 1.125rem;
     color: #fff;
+    padding-right: 0.3rem;
   }
   .title_pradesh_num{
     display: none;
