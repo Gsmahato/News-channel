@@ -1708,7 +1708,8 @@ white-space: nowrap;
     padding: 0;
   }
   .logo>a>img{
-    width: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   .activity_icon{
     width: 100%;
