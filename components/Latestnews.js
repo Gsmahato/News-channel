@@ -57,7 +57,7 @@ export default function Latestnews() {
     <section className={styles.latest}>
       {data.map((late) => (
         <div className={styles.latest_container} key={late.id}>
-          <Link href={`/News/${late.slug}`}>
+          <Link href={`/News/${late.id}`}>
             <h2>{late.title}</h2>
           </Link>
           <div className={styles.title_info}>

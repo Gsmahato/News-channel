@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 
-const SideMenu = ({ onClose }) => {
+export default async function SideMenu ({ onClose }) {
     const handleCloseMenu = () => {
         onClose();
       };
@@ -55,4 +55,3 @@ const SideMenu = ({ onClose }) => {
   );
 };
 
-export default SideMenu;

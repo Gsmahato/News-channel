@@ -1,11 +1,22 @@
 import React from "react";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
-import logo from "../public/logonews.png";
+import logo from "../public/abiralsancharlogo.svg";
 import Image from "next/image";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
+async function getCategory() {
+  const res = await fetch(
+    "https://www.bimaabazar.com/newsportal/categories/?cache_bust=12345"
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
-const Footer = () => {
+  return res.json();
+}
+
+export default async function Footer() {
+  const cat = await getCategory();
   return (
     <>
       <footer className={styles.site_footer}>
@@ -13,23 +24,11 @@ const Footer = () => {
           <div className={styles.flx_wrap}>
             <div>
               <h4>समाचार</h4>
-              <ul>
-                <li>
-                  <Link href="/">समाज</Link>
-                </li>
-                <li>
-                  <Link href="/">समाज</Link>
-                </li>
-                <li>
-                  <Link href="/">समाज</Link>
-                </li>
-                <li>
-                  <Link href="/">समाज</Link>
-                </li>
-                <li>
-                  <Link href="/">समाज</Link>
-                </li>
-              </ul>
+              {cat.map((category) => (
+                <ul key={category.id}>
+                  <li>{category.name}</li>
+                </ul>
+              ))}
             </div>
             <div>
               <h4>विजनेस</h4>
@@ -119,31 +118,31 @@ const Footer = () => {
           <div>
             <div className={styles.logo_wrap}>
               <Link href="/">
-                <Image src={logo} width={268} height={31} alt="" />
+                <Image src={logo} width={40} height={40} alt="" />
               </Link>
             </div>
           </div>
           <div className={styles.footer_editor_info}>
             <h5>
-              <span>अध्यक्ष तथा प्रबन्ध निर्देशक:</span>धर्मराज भुसाल
+              <span>संचालक सम्पादक : </span>अभिनास केसी
             </h5>
           </div>
           <div className={styles.footer_editor_info}>
             <h5>
-              <span>प्रधान सम्पादकः</span>धर्मराज भुसाल
+              <span>हाम्रो बारेमा :</span>ए डि के मिडिया प्रा.ली.
+            </h5>
+            <h5>
+              <span>www.abiralsanchar.com</span>
             </h5>
           </div>
           <div className={styles.footer_editor_info}>
             <h5>
-              <span>सूचना विभाग दर्ता नं.</span>धर्मराज भुसाल
+              <span>सम्पर्क रहने स्थान :</span>काठमाडौं ३१ शान्तीनगर
             </h5>
           </div>
-          <div className={styles.footer_contact_info}>
+          <div className={styles.footer_editor_info}>
             <h5>
-              <span>+977-980980980</span>
-            </h5>
-            <h5>
-              <span>email@gmail.com</span>
+              <span>सम्पर्क नम्बर:</span>+977-9813111540
             </h5>
           </div>
           <div className={styles.footer_contact_info}>
@@ -165,13 +164,11 @@ const Footer = () => {
               </Link>
             </div>
             <span className={styles.copyright_text}>
-              © २०२३-२०२३ Tazakhabar.com सर्वाधिकार सुरक्षित
+              © २०२३-२०२३ abiralsanchar.com सर्वाधिकार सुरक्षित
             </span>
           </div>
         </div>
       </div>
     </>
   );
-};
-
-export default Footer;
+}

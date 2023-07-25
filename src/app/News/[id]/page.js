@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
+import styles from "../../page.module.css"
 
 async function getData(id) {
   try {
@@ -26,9 +27,13 @@ export default function Newspage({ id }) {
 
   return (
     <>
+    <div className={styles.contentdetailpage}>
       {news.map((newscontent) => (
-        <div key={newscontent.id}>{newscontent.content}</div>
+        <div className={styles.container} key={newscontent.id}>
+          {newscontent.content}
+          </div>
       ))}
+      </div>
     </>
   );
 }

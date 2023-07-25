@@ -1,5 +1,6 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation'
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import SideMenu from "./SideMenu";
@@ -8,6 +9,24 @@ import { RiMenuLine, RiMenu2Line } from "react-icons/ri";
 
 const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false);
+  const [otherMenuItems, setOtherMenuItems] = useState([]);
+  const router = useRouter()
+
+  useEffect(() => {
+    const fetchMenuItems = async () => {
+      try {
+        const response = await fetch(
+          "https://www.bimaabazar.com/newsportal/categories/"
+        );
+        const data = await response.json();
+        setOtherMenuItems(data);
+      } catch (error) {
+        console.error("Error fetching menu items:", error);
+      }
+    };
+
+    fetchMenuItems();
+  }, []);
 
   const handleMenuClick = () => {
     setShowSideMenu(!showSideMenu);
@@ -16,6 +35,11 @@ const Navbar = () => {
   const handleCloseMenu = () => {
     setShowSideMenu(false);
   };
+
+  const handleMenuItemClick = (categoryID) => {
+    router.push(`/category/${categoryID}`);
+  };
+
   return (
     <>
       <div className={styles.navbar}>
@@ -25,31 +49,25 @@ const Navbar = () => {
               <li className={styles.menu_item}>
                 <Link href="/">होमपेज</Link>
               </li>
-              <li className={styles.menu_item}>
-                <Link href="/bijnesh">विजनेस</Link>
-              </li>
-              <li className={styles.menu_item}>
-                <Link href="/jiwansaili">जीवनशैली</Link>
-              </li>
-              <li className={styles.menu_item}>
-                <Link href="/manoranjan">मनोरन्जन</Link>
-              </li>
-              <li className={styles.menu_item}>
-                <Link href="/khelkud">खेलकुद</Link>
-              </li>
-              <li className={styles.menu_item}>
-                <Link href="/other">अन्य</Link>
-              </li>
+              {otherMenuItems.map((item) => (
+                <li
+                  key={item.id}
+                  className={styles.menu_item}
+                  onClick={() => handleMenuItemClick(item.id)}
+                >
+                  {item.name}
+                </li>
+              ))}
             </ul>
-            <Link className={styles.english_edition} href="/">
+            {/* <Link className={styles.english_edition} href="/">
               English
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               className={styles.election_edition}
               href="https://election.onlinekhabar.com/"
             >
               चुनाव २०७९
-            </Link>
+            </Link> */}
             <div className={styles.user_activity}>
               <div className={styles.latest_news}>
                 <i className={styles.activity_icon}>
