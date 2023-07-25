@@ -47,11 +47,10 @@ export default function Latestnews() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch data when the component mounts
     getData()
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));
-  }, []); // Empty dependency array means this effect runs only once, on mount.
+  }, []); 
 
   return (
     <section className={styles.latest}>

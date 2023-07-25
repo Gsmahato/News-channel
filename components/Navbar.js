@@ -7,26 +7,37 @@ import SideMenu from "./SideMenu";
 import { PiClockClockwiseFill, PiTrendUp, PiUserCircle } from "react-icons/pi";
 import { RiMenuLine, RiMenu2Line } from "react-icons/ri";
 
-const Navbar = () => {
+async function getCategory() {
+  const res = await fetch(
+    "https://www.bimaabazar.com/newsportal/categories/?cache_bust=12345"
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Navbar(){
   const [showSideMenu, setShowSideMenu] = useState(false);
-  const [otherMenuItems, setOtherMenuItems] = useState([]);
+  // const [otherMenuItems, setOtherMenuItems] = useState([]);
   const router = useRouter()
 
-  useEffect(() => {
-    const fetchMenuItems = async () => {
-      try {
-        const response = await fetch(
-          "https://www.bimaabazar.com/newsportal/categories/"
-        );
-        const data = await response.json();
-        setOtherMenuItems(data);
-      } catch (error) {
-        console.error("Error fetching menu items:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchMenuItems = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://www.bimaabazar.com/newsportal/categories/"
+  //       );
+  //       const data = await response.json();
+  //       setOtherMenuItems(data);
+  //     } catch (error) {
+  //       console.error("Error fetching menu items:", error);
+  //     }
+  //   };
 
-    fetchMenuItems();
-  }, []);
+  //   fetchMenuItems();
+  // }, []);
 
   const handleMenuClick = () => {
     setShowSideMenu(!showSideMenu);
@@ -39,6 +50,7 @@ const Navbar = () => {
   const handleMenuItemClick = (categoryID) => {
     router.push(`/category/${categoryID}`);
   };
+  const cat = await getCategory();
 
   return (
     <>
@@ -49,7 +61,7 @@ const Navbar = () => {
               <li className={styles.menu_item}>
                 <Link href="/">होमपेज</Link>
               </li>
-              {otherMenuItems.map((item) => (
+              {cat.map((item) => (
                 <li
                   key={item.id}
                   className={styles.menu_item}
@@ -98,4 +110,3 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
