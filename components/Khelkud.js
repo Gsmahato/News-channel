@@ -10,11 +10,11 @@ import { FaRegClock } from "react-icons/fa";
 
 const Khelkud = () => {
   return (
-    <section className={styles.Entertainment_section}>
+    <section className={styles.Sports_section}>
       <div className={styles.E_container}>
         <div className={styles.E_section_title}>
           <h2 className={styles.E_title_part}>
-            मनोरञ्जन
+          खेलकुद
             <ul className={styles.E_title_cat_menu_2}>
               <Link href="/">गशिप</Link>
               <Link href="/">फिचर</Link>

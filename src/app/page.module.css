@@ -120,7 +120,7 @@ white-space: nowrap;
   justify-content: flex-start;
   opacity: .48;
   font-size: 0.9rem;
-  height: 1.2rem;
+  height: 1.5rem;
 }
 .head_adv{
   display: flex;
@@ -673,7 +673,7 @@ white-space: nowrap;
   line-height: 2.75rem;
   padding: 0 0.9375rem 0 0.5rem;
   border-radius: 0.125rem;
-  background-color: rgba(16, 37, 103, 0.571);
+  background-color: rgba(103, 16, 41, 0.571);
   color: #fff;
   font-size: 0.9375rem;
   font-family: mukta,sans-serif;
@@ -1016,11 +1016,19 @@ white-space: nowrap;
 }
 .trending_counter{
   font-size: 3.375rem;
-    font-weight: 500;
-    color: rgba(34,96,191,.24);
-    position: absolute;
-    left: 0;
-    line-height: .72;
+  font-weight: 500;
+  color: rgba(34,96,191,.24);
+  position: absolute;
+  left: 0;
+  line-height: .72;
+}
+.trending_counter1{
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgba(34,96,191,.24);
+  position: absolute;
+  left: 0;
+  line-height: .72;
 }
 .pradesh_content_wrap{
   text-decoration: none;
@@ -1078,7 +1086,12 @@ white-space: nowrap;
 .Entertainment_section{
   padding-top: 1rem;
   padding-bottom: 3rem;
-  background-color: #2260bf;
+  background-color: #041834;
+}
+.Sports_section{
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  background-color: #465004;
 }
 .site_footer{
   padding: 60px 0;

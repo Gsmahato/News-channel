@@ -7,14 +7,14 @@ import prachar from "../public/prachar.gif";
 import rightbanner1 from "../public/rightbanner1.gif";
 import { MdArrowForwardIos } from "react-icons/md";
 
-const Bijnesh = () => {
+const Aarthik = () => {
   return (
     <section className={styles.bijnesh_samachar}>
       <div className={styles.news_container}>
         <div className={styles.col_left}>
           <div className={styles.section_title}>
             <h2 className={styles.title_part}>
-              बिजनेस
+              आर्थिक
               <ul className={styles.title_cat_menu}>
                 <Link href="/">
                   <li>अर्थनीति</li>
@@ -32,7 +32,7 @@ const Bijnesh = () => {
                   <li>अर्थनीति</li>
                 </Link>
               </ul>
-              <Link href="/bijnesh">
+              <Link href="/Rajnit">
                 <i className={styles.F_arrow}>
                   <MdArrowForwardIos />
                 </i>
@@ -40,22 +40,22 @@ const Bijnesh = () => {
             </h2>
           </div>
           <ul className={styles.title_cat_menu_mob}>
-                <Link href="/">
-                  <li>अर्थनीति</li>
-                </Link>
-                <Link href="/">
-                  <li>अर्थनीति</li>
-                </Link>
-                <Link href="/">
-                  <li>अर्थनीति</li>
-                </Link>
-                <Link href="/">
-                  <li>अर्थनीति</li>
-                </Link>
-                <Link href="/">
-                  <li>अर्थनीति</li>
-                </Link>
-              </ul>
+            <Link href="/">
+              <li>अर्थनीति</li>
+            </Link>
+            <Link href="/">
+              <li>अर्थनीति</li>
+            </Link>
+            <Link href="/">
+              <li>अर्थनीति</li>
+            </Link>
+            <Link href="/">
+              <li>अर्थनीति</li>
+            </Link>
+            <Link href="/">
+              <li>अर्थनीति</li>
+            </Link>
+          </ul>
           <div className={styles.grid_12}>
             <div className={styles.span_12}>
               <div className={styles.samachar_spot_news}>
@@ -399,4 +399,4 @@ const Bijnesh = () => {
   );
 };
 
-export default Bijnesh;
+export default Aarthik;

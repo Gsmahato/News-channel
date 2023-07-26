@@ -1,30 +1,31 @@
 import Adbanner from "../../components/Adbanner";
-import Bijnesh from "../../components/Bijnesh";
+import Rajnit from "../../components/Aarthik";
 import Entertainment from "../../components/Entertainment";
-import Feature from "../../components/Feature";
 import Khelkud from "../../components/Khelkud";
 import Latestnews from "../../components/Latestnews";
 import Mukhya from "../../components/Mukhya";
-import PradeshSamachar from "../../components/PradeshSamachar";
+import Aarthik from "../../components/Aarthik";
 import Samachar from "../../components/Samachar";
 import "./globals.css";
-import RootLayout from "./layout";
+import BigyanPrabhidhi from "../../components/BigyanPrabhidhi";
+import Rajniti from "../../components/Rajniti";
 export default function Home() {
   return (
     <>
-        {/* <Adbanner /> */}
-        <Latestnews />
-        {/* <Adbanner /> */}
-        <Mukhya />
-        <Samachar />
-        {/* <Adbanner /> */}
-        <Bijnesh />
-        {/* <Adbanner /> */}
-        <PradeshSamachar />
-        {/* <Adbanner /> */}
-        {/* <Feature /> */}
-        <Entertainment />
-        <Khelkud />
+      {/* <Adbanner /> */}
+      <Latestnews />
+      {/* <Adbanner /> */}
+      <Mukhya />
+      <Samachar />
+      {/* <Adbanner /> */}
+      <Aarthik />
+      {/* <Adbanner /> */}
+      <Rajniti />
+      {/* <Adbanner /> */}
+      {/* <Feature /> */}
+      <Entertainment />
+      <BigyanPrabhidhi />
+      <Khelkud />
     </>
   );
 }

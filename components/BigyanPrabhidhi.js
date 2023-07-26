@@ -6,25 +6,16 @@ import ANSU from "../public/ANSU.jpg";
 import digital from "../public/digital.jpg";
 import prachar from "../public/prachar.gif";
 import rightbanner1 from "../public/rightbanner1.gif";
-import { MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos ,MdArrowForward} from "react-icons/md";
 
-const PradeshSamachar = () => {
+const BigyanPrabhidhi = () => {
   return (
     <section className={styles.bijnesh_samachar}>
       <div className={styles.news_container}>
         <div className={styles.col_left}>
           <div className={styles.section_title}>
             <h2 className={styles.title_part}>
-              प्रदेश समाचार
-              <ul className={styles.title_pradesh_num}>
-                <Link href="/">१</Link>
-                <Link href="/">२</Link>
-                <Link href="/">३</Link>
-                <Link href="/">४</Link>
-                <Link href="/">५</Link>
-                <Link href="/">६</Link>
-                <Link href="/">७</Link>
-              </ul>
+              विज्ञान प्रविधि
               <Link href="/pradeshsamachaar">
                 <i className={styles.F_arrow}>
                   <MdArrowForwardIos />
@@ -32,15 +23,6 @@ const PradeshSamachar = () => {
               </Link>
             </h2>
           </div>
-          <ul className={styles.title_pradesh_num_2}>
-                <Link href="/">१</Link>
-                <Link href="/">२</Link>
-                <Link href="/">३</Link>
-                <Link href="/">४</Link>
-                <Link href="/">५</Link>
-                <Link href="/">६</Link>
-                <Link href="/">७</Link>
-              </ul>
           <div className={styles.grid_12}>
             <div className={styles.span_12}>
               <div className={styles.samachar_spot_news}>
@@ -127,12 +109,14 @@ const PradeshSamachar = () => {
         </div>
         <div className={styles.col_right}>
           <div className={styles.trending_vertical}>
-            <h2>ट्रेन्डिङ</h2>
+            <h2>प्रविधि</h2>
             <ul className={styles.t_news}>
               <li>
                 <div className={styles.p_news}>
                   <Link href="/">
-                    <span className={styles.trending_counter}>१</span>
+                    <span className={styles.trending_counter1}>
+                      <MdArrowForward/>
+                    </span>
                     <div className={styles.pradesh_content_wrap}>
                       <h2 className={styles.pradesh_title_text}>
                         ललिता निवास प्रकरणमा तीन जनालाई पक्राउ गर्नुको आधार र
@@ -146,7 +130,9 @@ const PradeshSamachar = () => {
               <li>
                 <div className={styles.p_news}>
                   <Link href="/">
-                    <span className={styles.trending_counter}>२</span>
+                    <span className={styles.trending_counter1}>
+                      <MdArrowForward/>
+                    </span>
                     <div className={styles.pradesh_content_wrap}>
                       <h2 className={styles.pradesh_title_text}>
                         ललिता निवास प्रकरणमा तीन जनालाई पक्राउ गर्नुको आधार र
@@ -160,7 +146,9 @@ const PradeshSamachar = () => {
               <li>
                 <div className={styles.p_news}>
                   <Link href="/">
-                    <span className={styles.trending_counter}>३</span>
+                    <span className={styles.trending_counter1}>
+                      <MdArrowForward/>
+                    </span>
                     <div className={styles.pradesh_content_wrap}>
                       <h2 className={styles.pradesh_title_text}>
                         ललिता निवास प्रकरणमा तीन जनालाई पक्राउ गर्नुको आधार र
@@ -174,7 +162,9 @@ const PradeshSamachar = () => {
               <li>
                 <div className={styles.p_news}>
                   <Link href="/">
-                    <span className={styles.trending_counter}>४</span>
+                    <span className={styles.trending_counter1}>
+                      <MdArrowForward/>
+                    </span>
                     <div className={styles.pradesh_content_wrap}>
                       <h2 className={styles.pradesh_title_text}>
                         ललिता निवास प्रकरणमा तीन जनालाई पक्राउ गर्नुको आधार र
@@ -188,7 +178,9 @@ const PradeshSamachar = () => {
               <li>
                 <div className={styles.p_news}>
                   <Link href="/">
-                    <span className={styles.trending_counter}>५</span>
+                    <span className={styles.trending_counter1}>
+                      <MdArrowForward/>
+                    </span>
                     <div className={styles.pradesh_content_wrap}>
                       <h2 className={styles.pradesh_title_text}>
                         ललिता निवास प्रकरणमा तीन जनालाई पक्राउ गर्नुको आधार र
@@ -210,22 +202,21 @@ const PradeshSamachar = () => {
               >
                 <div className={styles.each_ad}>
                   <Link href="/">
-                    <Image src={rightbanner1} width={300} height={150} alt=""/>
+                    <Image src={rightbanner1} width={300} height={150} alt="" />
                   </Link>
                 </div>
                 <div className={styles.each_ad}>
                   <Link href="/">
-                    <Image src={rightbanner1} width={300} height={150} alt=""/>
+                    <Image src={rightbanner1} width={300} height={150} alt="" />
                   </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );
 };
 
-export default PradeshSamachar;
+export default BigyanPrabhidhi;

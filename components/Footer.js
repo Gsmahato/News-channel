@@ -168,7 +168,7 @@ export default async function Footer() {
           </div>
           <div className={styles.footer_editor_info}>
             <h5>
-              <span>सम्पर्क स्थान :</span>काठमाडौं ३१ शान्तीनगर
+              <span>सम्पर्क ठेगाना :</span>काठमाडौं ३१ शान्तीनगर
             </h5>
           </div>
           <div className={styles.footer_editor_info}>

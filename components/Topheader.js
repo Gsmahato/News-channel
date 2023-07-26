@@ -31,7 +31,7 @@ const Topheader = () => {
           </div>
           <div className={styles.logo}>
             <Link href="/">
-              <Image src={logo} width={50} height={50} alt="" />
+              <Image src={logo} width={46} height={46} alt="" />
             </Link>
             <div className={styles.currenttime}>
               <NepaliDateComponent />
