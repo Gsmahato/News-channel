@@ -1,5 +1,5 @@
-"use client"
-import React, { useState, useEffect } from "react";
+// "use client"
+// import React, { useState, useEffect } from "react";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -43,20 +43,20 @@ function truncateContent(content, maxWords) {
   return truncated + (words.length > maxWords ? "..." : "");
 }
 
-export default function Latestnews() {
-  const [data, setData] = useState([]);
+export default async function Latestnews() {
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    getData()
-      .then((data) => setData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []); 
-
+  // useEffect(() => {
+  //   getData()
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // }, []); 
+const data = await getData();
   return (
     <section className={styles.latest}>
       {data.map((late) => (
         <div className={styles.latest_container} key={late.id}>
-          <Link href={`/news/${late.slug}`}>
+          <Link href={`/news/${late.id}`}>
             <h2>{late.title}</h2>
           </Link>
           <div className={styles.title_info}>
