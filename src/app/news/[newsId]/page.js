@@ -8,9 +8,7 @@ async function Page({ params: { newsId } }) {
   console.log(news);
   return (
     <>
-      <div>
-        <div>{news.image1}</div>
-        {news.content}</div>
+      <div>{news.content}</div>
     </>
   );
 }
