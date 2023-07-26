@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -7,39 +7,72 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://www.abiralsanchar.com/">
-        abiralsanchar
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+function SignIn() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-const defaultTheme = createTheme();
-
-export default function SignIn() {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('username'),
-      password: data.get('password'),
-    });
+  
+    // Prepare the request body to send to the server
+    const requestBody = {
+      username,
+      password,
+    };
+  
+    try {
+      // Make the API call to your backend server for authentication
+      const response = await fetch('https://www.bimaabazar.com/newsportal/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+      console.log(response)
+  
+      if (response.ok) {
+        // Authentication successful
+        toast.success('Login successful', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+  
+        // Perform appropriate actions (e.g., redirect to dashboard)
+        console.log('Authentication successful');
+      } else if (response.status === 403) {
+        // Authentication failed due to authorization issues
+        toast.error('Forbidden: Access Denied', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        console.log('Authorization error: Forbidden');
+      } else {
+        // Other non-successful response status
+        toast.error('Login failed', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        console.log('Authentication failed', response.status);
+      }
+    } catch (error) {
+      // Handle network errors
+      toast.error('Error occurred during login', {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      console.error('Error occurred during login:', error);
+    }
   };
 
+
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={createTheme()}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -66,6 +99,8 @@ export default function SignIn() {
               name="username"
               autoComplete="username"
               autoFocus
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -76,6 +111,8 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -91,8 +128,10 @@ export default function SignIn() {
             </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <ToastContainer />
     </ThemeProvider>
   );
 }
+
+export default SignIn;
