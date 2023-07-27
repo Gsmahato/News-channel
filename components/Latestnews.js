@@ -86,7 +86,7 @@ const data = await getData();
           </div>
           {late.image1 && (
             <div className={styles.latest_news_image}>
-              <Link href={`/News/${late.id}`}>
+              <Link href={`/news/${late.id}`}>
                 <Image
                   src={`https://www.bimaabazar.com/${late.image1}`}
                   alt=""
