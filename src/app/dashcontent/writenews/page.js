@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../styles/newStyles.module.css";
 import { ToastContainer, toast } from "react-toastify";
+import Image from "next/image";
 
 export default function Newswrite() {
   const [title, setTitle] = useState("");
@@ -173,7 +174,7 @@ export default function Newswrite() {
                                 onChange={handleImageChange}
                                 className={styles.form_control}
                               />
-                              {image && <img src={image} alt="Selected" />}
+                              {image && <Image src={image} alt="Selected" />}
                             </div>
                           </div>
                         </div>
