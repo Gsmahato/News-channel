@@ -50,6 +50,8 @@ export default async function Latestnews() {
   //     .catch((error) => console.error("Error fetching data:", error));
   // }, []);
   const data = await getData();
+  data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
   return (
     <section className={styles.latest}>
       {data.map((late) => (
