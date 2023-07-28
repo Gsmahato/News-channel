@@ -1,9 +1,10 @@
-import { getNews } from "../getNews";
+// import { getNews } from "../getNews";
 import styles from '@/app/page.module.css'
 import Image from "next/image";
 export default async function Newspage({ params: { id } }) {
-  const news = await getNews(id);
-  console.log(news);
+  const res = await fetch(`https://www.bimaabazar.com/newsportal/news/${id}`);
+ const news = await res.json()
+  // const news = await getNews(id);
   return (
     <div className={styles.latest}>
       <h4>{news.title}</h4>
