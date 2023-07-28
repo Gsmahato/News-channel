@@ -6,9 +6,9 @@ import Image from "next/image";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
 
 async function getData() {
-  const res = await fetch(
-    "https://www.bimaabazar.com/newsportal/news/?cache_bust=12345"
-  );
+  const res = await fetch("https://www.bimaabazar.com/newsportal/news/", {
+    cache: "no-cache",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -50,8 +50,8 @@ export default async function Latestnews() {
   //   getData()
   //     .then((data) => setData(data))
   //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []); 
-const data = await getData();
+  // }, []);
+  const data = await getData();
   return (
     <section className={styles.latest}>
       {data.map((late) => (

@@ -1,6 +1,6 @@
 "use client";
-import React, { useState} from "react";
-import { useRouter } from 'next/navigation'
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import SideMenu from "./SideMenu";
@@ -8,9 +8,9 @@ import { PiClockClockwiseFill, PiTrendUp, PiUserCircle } from "react-icons/pi";
 import { RiMenuLine, RiMenu2Line } from "react-icons/ri";
 
 async function getCategory() {
-  const res = await fetch(
-    "https://www.bimaabazar.com/newsportal/categories/?cache_bust=12345"
-  );
+  const res = await fetch("https://www.bimaabazar.com/newsportal/categories/", {
+    next: { revalidate: 2 },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -18,9 +18,9 @@ async function getCategory() {
   return res.json();
 }
 
-export default async function Navbar(){
+export default async function Navbar() {
   const [showSideMenu, setShowSideMenu] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   // useEffect(() => {
   //   const fetchMenuItems = async () => {
@@ -107,5 +107,4 @@ export default async function Navbar(){
       </div>
     </>
   );
-};
-
+}

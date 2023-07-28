@@ -11,7 +11,7 @@ export default async function Newspage({ params: { id } }) {
       <Image
         src={`https://www.bimaabazar.com/${news.image1}`}
         alt=""
-        width={800}
+        width={1000}
         height={600}
       />
       </div>

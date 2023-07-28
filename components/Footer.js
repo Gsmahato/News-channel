@@ -4,12 +4,12 @@ import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import logo from "../public/abiralsancharlogo.svg";
 import Image from "next/image";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 async function getCategory() {
-  const res = await fetch(
-    "https://www.bimaabazar.com/newsportal/categories/?cache_bust=12345"
-  );
+  const res = await fetch("https://www.bimaabazar.com/newsportal/categories/", {
+    next: { revalidate: 2 },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
