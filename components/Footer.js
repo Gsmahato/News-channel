@@ -7,9 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 async function getCategory() {
-  const res = await fetch("https://www.bimaabazar.com/newsportal/categories/", {
-    next: { revalidate: 2 },
-  });
+  const res = await fetch("https://www.bimaabazar.com/newsportal/categories/",{next:{revalidate:1}});
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
