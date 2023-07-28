@@ -1,23 +1,19 @@
-// import { getNews } from "../getNews";
-import styles from '@/app/page.module.css'
-import Image from "next/image";
+import styles from '@/app/page.module.css';
+import Image from 'next/image';
+
 export default async function Newspage({ params: { id } }) {
   const res = await fetch(`https://www.bimaabazar.com/newsportal/news/${id}`);
- const news = await res.json()
-  // const news = await getNews(id);
+  const news = await res.json();
+
+  const newsText = JSON.stringify(news, null, 2);
+
   return (
     <div className={styles.latest}>
       <h4>{news.title}</h4>
       <div>
-      <Image
-        src={`https://www.bimaabazar.com/${news.image1}`}
-        alt=""
-        width={1000}
-        height={600}
-      />
+        <Image src={`https://www.bimaabazar.com/${news.image1}`} alt="" width={1000} height={600} />
       </div>
-
-      {news.content}
     </div>
   );
 }
+
