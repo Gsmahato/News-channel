@@ -7,7 +7,7 @@ import Samachar from "../../components/Samachar";
 import "./globals.css";
 import BigyanPrabhidhi from "../../components/BigyanPrabhidhi";
 import Rajniti from "../../components/Rajniti";
-export default function Home({newsData}) {
+export default function Home() {
   return (
     <>
       <Latestnews />
@@ -20,9 +20,4 @@ export default function Home({newsData}) {
       <Khelkud />
     </>
   );
-}
-export const getServerSideProps = async ()=>{
-  const res = await fetch("https://www.bimaabazar.com/newsportal/news/")
-  const newsData = await res.json()
-  return{props:{newsData}}
 }
