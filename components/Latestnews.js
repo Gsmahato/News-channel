@@ -4,6 +4,7 @@ import styles from "../src/app/page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { FaRegClock, FaRegCommentAlt } from "react-icons/fa";
+// import { getNews } from "@/app/utils/api";
 
 async function getData() {
   const res = await fetch("https://www.bimaabazar.com/newsportal/news/",{next:{revalidate:1}});
